@@ -7,16 +7,18 @@ public class InputHandler : MonoBehaviour
     private AntInput.AntActionsActions onAnt;
     
     private PlayerMotor _playerMotor;
+    private PlayerAnt _playerAnt;
 
     private void Awake()
     {
         _playerMotor = GetComponent<PlayerMotor>(); 
+        _playerAnt = GetComponent<PlayerAnt>();
         antInput = new AntInput();
         onAnt = antInput.AntActions;
 
        
         
-        /*onfoot.Jump.performed += ctx => motor.Jump();*/
+        /*onAnt.Shot.performed += ctx => _playerAnt.Jump();*/
 
        
     }
@@ -33,6 +35,6 @@ public class InputHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _playerMotor.ProcessMove(onAnt.Movement.ReadValue<Vector2>());
+        _playerMotor.ProcessMovement(onAnt.Movement.ReadValue<Vector2>());
     }
 }
