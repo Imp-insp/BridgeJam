@@ -6,6 +6,8 @@ public class InputHandler : MonoBehaviour
     private AntInput antInput;
     private AntInput.AntActionsActions onAnt;
     
+    private Camera Camera => Camera.main;
+    
     private PlayerMotor _playerMotor;
     private PlayerAnt _playerAnt;
 
@@ -18,7 +20,7 @@ public class InputHandler : MonoBehaviour
 
        
         
-        /*onAnt.Shot.performed += ctx => _playerAnt.Jump();*/
+        onAnt.ShotChain.performed += ctx => _playerAnt.MakeBridge(Camera.ScreenToWorldPoint(onAnt.TargetPos.ReadValue<Vector2>()));
 
        
     }

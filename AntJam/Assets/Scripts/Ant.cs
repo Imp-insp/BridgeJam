@@ -28,6 +28,7 @@ public class Ant : MonoBehaviour
     public void Activate(Vector3 groundTrgt,Vector3 lastTrgt)
     {
         SetLayerRecursively(gameObject, LayerMask.NameToLayer("Wall"));
+        sprRenderer.enabled = true;
 
         transform.DOMove(groundTrgt, moveTime).OnComplete(() =>
         {

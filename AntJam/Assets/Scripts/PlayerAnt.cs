@@ -58,6 +58,8 @@ public class PlayerAnt : MonoBehaviour
     public void AddAnt()
     {
         var newAnt = Instantiate(antRef, antSpawnPoint);
+        newAnt.transform.position = Vector3.zero;
         allAnts.Add(newAnt);
+        
     }
 }
