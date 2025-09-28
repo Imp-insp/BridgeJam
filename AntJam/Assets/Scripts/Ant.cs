@@ -9,7 +9,7 @@ public class Ant : MonoBehaviour
 
 
     [Header("Ref")] 
-    [SerializeField] private Transform end;
+    public Transform end;
 
     [HideInInspector] public SpriteRenderer sprRenderer;
 
@@ -25,14 +25,26 @@ public class Ant : MonoBehaviour
         sprRenderer.enabled = false;
     }
     
-
-    public void Activate(bool last, Vector3 groundTrgt, Vector3 lastTrgt)
+    public void Activate(Vector3 groundTrgt,Vector3 lastTrgt)
     {
         SetLayerRecursively(gameObject, LayerMask.NameToLayer("Wall"));
-        /*if (last) PutCol(false);*/
+
         transform.DOMove(groundTrgt, moveTime).OnComplete(() =>
         {
             transform.DORotate(new Vector3(0, 0, Vector2.SignedAngle(transform.position, lastTrgt)), moveTime);
+        });
+
+    }
+    public void Activate(Vector3 groundTrgt, Vector3 lastTrgt, Vector3 nextPoint)
+    {
+        SetLayerRecursively(gameObject, LayerMask.NameToLayer("Wall"));
+       
+        transform.DOMove(groundTrgt, moveTime).OnComplete(() =>
+        {
+            transform.DORotate(new Vector3(0, 0, Vector2.SignedAngle(transform.position, lastTrgt)), moveTime).OnComplete(() =>
+            {
+                transform.DOMove(nextPoint, moveTime);
+            });
         });
 
     }
@@ -41,15 +53,17 @@ public class Ant : MonoBehaviour
     public void DeactivateColl()
     {
         SetLayerRecursively(gameObject, LayerMask.NameToLayer("Default"));
+        
     }
 
-    public void PutCol(bool first)
+    /*public void PutCol(bool first)
     {
         var cool = first
             ? gameObject.AddComponent<CircleCollider2D>()
             : end.gameObject.AddComponent<CircleCollider2D>();
         cool.radius = 0.4f;
     }
+    */
 
     public void GoToPlace(Vector3 position)
     {

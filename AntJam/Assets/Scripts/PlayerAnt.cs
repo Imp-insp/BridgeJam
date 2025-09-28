@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PlayerAnt : MonoBehaviour
 {
     public static PlayerAnt Instance;
+
     [Header("References")] [SerializeField]
     private Ant antRef;
 
@@ -20,10 +21,11 @@ public class PlayerAnt : MonoBehaviour
     private void Awake()
     {
         #region Singleton
+
         if (!Instance) Instance = this;
         else Destroy(gameObject);
+
         #endregion
-      
     }
 
     private void Start()
@@ -37,15 +39,25 @@ public class PlayerAnt : MonoBehaviour
     public void MakeBridge(Vector3 endPosition)
     {
         var targetPos = chainStartPoint.position - endPosition;
+
+        for (var i = 0; i < allAnts.Count; i++)
+        {
+            var ant =  allAnts[i];
+            if (i == 0)
+            {
+                ant.Activate(chainStartPoint.position, targetPos);
+            }
+            else
+            {
+                ant.Activate(chainStartPoint.position, targetPos, allAnts[i-1].end.position );
+            }
+            
+        }
     }
 
     public void AddAnt()
     {
         var newAnt = Instantiate(antRef, antSpawnPoint);
-
         allAnts.Add(newAnt);
-
-        if (allAnts.Count != 1) return;
-        newAnt.PutCol(true);
     }
 }
