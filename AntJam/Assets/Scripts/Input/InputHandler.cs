@@ -20,7 +20,7 @@ public class InputHandler : MonoBehaviour
 
        
         
-        onAnt.ShotChain.performed += ctx => _playerAnt.MakeBridge(Camera.ScreenToWorldPoint(onAnt.TargetPos.ReadValue<Vector2>()));
+        onAnt.ShotChain.performed += ctx => _playerAnt.StartMakingBridge(Camera.ScreenToWorldPoint(onAnt.TargetPos.ReadValue<Vector2>()));
 
        
     }

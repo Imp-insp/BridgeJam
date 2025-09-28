@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Ant : MonoBehaviour
 {
-    [Header("Variables")] 
-    [SerializeField] private float moveTime;
+    [Header("Variables")] public static float moveTime => 0.5f;
 
 
-    [Header("Ref")] 
-    public Transform end;
+    [Header("Ref")] public Transform end;
 
     [HideInInspector] public SpriteRenderer sprRenderer;
+    private PlayerAnt _playerAnt;
 
 
     private void Awake()
@@ -21,41 +20,45 @@ public class Ant : MonoBehaviour
 
     private void Start()
     {
+        _playerAnt = PlayerAnt.Instance;
+        
         DeactivateColl();
         sprRenderer.enabled = false;
     }
-    
-    public void Activate(Vector3 groundTrgt,Vector3 lastTrgt)
+
+    public void Activate(Vector3 groundTrgt, Vector3 lastTrgt)
     {
-        SetLayerRecursively(gameObject, LayerMask.NameToLayer("Wall"));
+        
         sprRenderer.enabled = true;
 
         transform.DOMove(groundTrgt, moveTime).OnComplete(() =>
         {
             Debug.Log(Vector2.SignedAngle(transform.position, lastTrgt));
-            transform.DORotate(new Vector3(0, 0, -Vector2.SignedAngle(transform.position, lastTrgt)), moveTime);
+            transform.LookAt(lastTrgt);
+            _playerAnt.areWalking = false;
+            SetLayerRecursively(gameObject, LayerMask.NameToLayer("Wall"));
         });
-
     }
+
     public void Activate(Vector3 groundTrgt, Vector3 lastTrgt, Vector3 nextPoint)
     {
-        SetLayerRecursively(gameObject, LayerMask.NameToLayer("Wall"));
-       
+        sprRenderer.enabled = true;
+
         transform.DOMove(groundTrgt, moveTime).OnComplete(() =>
         {
-            transform.DORotate(new Vector3(0, 0, Vector2.SignedAngle(transform.position, lastTrgt)), moveTime).OnComplete(() =>
+            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + Vector2.SignedAngle(transform.position, lastTrgt));
+            transform.DOMove(nextPoint, moveTime).OnComplete(() =>
             {
-                transform.DOMove(nextPoint, moveTime);
+                _playerAnt.areWalking = false;
+                SetLayerRecursively(gameObject, LayerMask.NameToLayer("Wall"));
             });
         });
-
     }
 
 
     public void DeactivateColl()
     {
         SetLayerRecursively(gameObject, LayerMask.NameToLayer("Default"));
-        
     }
 
     /*public void PutCol(bool first)

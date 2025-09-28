@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,8 @@ public class PlayerAnt : MonoBehaviour
     [Header("Ants")] [SerializeField] private Image arrow;
     [SerializeField] private List<Ant> allAnts = new();
 
-    [Header("Control")] public bool constructing;
+    [Header("Control")] public bool areWalking;
+    public bool constructing;
 
     private void Awake()
     {
@@ -36,7 +38,12 @@ public class PlayerAnt : MonoBehaviour
         }
     }
 
-    public void MakeBridge(Vector3 endPosition)
+    public void StartMakingBridge(Vector3 endPos)
+    {
+        StartCoroutine(MakeBridge(endPos));
+    }
+    
+    private IEnumerator MakeBridge(Vector3 endPosition)
     {
         var targetPos = chainStartPoint.position - endPosition;
 
@@ -44,6 +51,7 @@ public class PlayerAnt : MonoBehaviour
         {
             var ant =  allAnts[i];
             ant.transform.SetParent(gameObject.transform.parent);
+            areWalking = true;
             if (i == 0)
             {
                 ant.Activate(chainStartPoint.position, targetPos);
@@ -52,7 +60,7 @@ public class PlayerAnt : MonoBehaviour
             {
                 ant.Activate(chainStartPoint.position, targetPos, allAnts[i-1].end.position );
             }
-            
+            while (areWalking) yield return null;
         }
     }
 
