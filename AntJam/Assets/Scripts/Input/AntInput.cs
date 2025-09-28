@@ -99,6 +99,15 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShotChain"",
+                    ""type"": ""Button"",
+                    ""id"": ""972376bc-e98b-4e99-863f-cefa6097cbbc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -211,6 +220,17 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbb4daa1-e0f3-41cb-8869-a13cf62ccca4"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShotChain"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -220,6 +240,7 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
         // AntActions
         m_AntActions = asset.FindActionMap("AntActions", throwIfNotFound: true);
         m_AntActions_Movement = m_AntActions.FindAction("Movement", throwIfNotFound: true);
+        m_AntActions_ShotChain = m_AntActions.FindAction("ShotChain", throwIfNotFound: true);
     }
 
     ~@AntInput()
@@ -301,6 +322,7 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_AntActions;
     private List<IAntActionsActions> m_AntActionsActionsCallbackInterfaces = new List<IAntActionsActions>();
     private readonly InputAction m_AntActions_Movement;
+    private readonly InputAction m_AntActions_ShotChain;
     /// <summary>
     /// Provides access to input actions defined in input action map "AntActions".
     /// </summary>
@@ -316,6 +338,10 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "AntActions/Movement".
         /// </summary>
         public InputAction @Movement => m_Wrapper.m_AntActions_Movement;
+        /// <summary>
+        /// Provides access to the underlying input action "AntActions/ShotChain".
+        /// </summary>
+        public InputAction @ShotChain => m_Wrapper.m_AntActions_ShotChain;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -345,6 +371,9 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @ShotChain.started += instance.OnShotChain;
+            @ShotChain.performed += instance.OnShotChain;
+            @ShotChain.canceled += instance.OnShotChain;
         }
 
         /// <summary>
@@ -359,6 +388,9 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @ShotChain.started -= instance.OnShotChain;
+            @ShotChain.performed -= instance.OnShotChain;
+            @ShotChain.canceled -= instance.OnShotChain;
         }
 
         /// <summary>
@@ -406,5 +438,12 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMovement(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ShotChain" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnShotChain(InputAction.CallbackContext context);
     }
 }
