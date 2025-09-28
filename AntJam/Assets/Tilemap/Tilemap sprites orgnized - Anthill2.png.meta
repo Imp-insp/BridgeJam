@@ -1,0 +1,1181 @@
+fileFormatVersion: 2
+guid: e6bbcc43db396f940b0d86b819bd528d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7515879003329578098
+    second: Tilemap sprites orgnized - Anthill2_0
+  - first:
+      213: 8147561605154779032
+    second: Tilemap sprites orgnized - Anthill2_1
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 127
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1372
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b39b70edb32b790800000000000000
+      internalID: -7515879003329578098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1372
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89facdcbc14f11170800000000000000
+      internalID: 8147561605154779032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1372
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a22f7f8b33bb7b34e99577d629e28a69
+      internalID: -1454617611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1372
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 660c7bee2c59abf46a75248f491efa62
+      internalID: 1649449734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1372
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9f76d90209fa9418f04c8c8981bb54
+      internalID: 699059816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1372
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a516aff2a331a448b2c2b4ed3da9f0f
+      internalID: -90037650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1372
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7769b8824494bbc4882864fdd71d4dd7
+      internalID: -146381582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1372
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b219e2ac15f9b94aa33c71f82741211
+      internalID: -1544098954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1372
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832df989f776c0e4ea65e6ece2455998
+      internalID: -1788172545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1244
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0628d56058bec3547b34e312b44c7e49
+      internalID: 1909926997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1244
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ab69fa931c7f847837b5ebb37e9f8b
+      internalID: -1999903579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1244
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 497d6f1787e276f46ae56043a68abfda
+      internalID: 805176840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1244
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77322573c1c1abb43bb02776165e56db
+      internalID: 1642166489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1244
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f859f1d099280b45a101e9d0de73e5b
+      internalID: -828508645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_14
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1244
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 753e8573ddb79c24094ac45346bc683d
+      internalID: -690654414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_15
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1244
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c042eb5e8d0d7449247b4bb48aef0d
+      internalID: 2074075965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_16
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1244
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c55a78eba3150444db74d2f72595d0f5
+      internalID: -2122894827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1244
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 563d814b64e10f346a5519bba527e87e
+      internalID: -525453533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1116
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71abda1124bf4d746af13786be98e6c7
+      internalID: -1756802756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1116
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e91ad28ecd42cad4f8835ff0176b899e
+      internalID: 69967112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1116
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a757278853324da4797c19c1a705f50d
+      internalID: -898594394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_21
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1116
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7962b247f6feab04b9f86b6ec76d1790
+      internalID: 719464415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_22
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1116
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446d15085b673c74f9539b454dd61352
+      internalID: 859657086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_23
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1116
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa7eaad246f00f4bb97ce232e53b573
+      internalID: -150668419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_24
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1116
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f0c59238995a924f9965b00ec31bf25
+      internalID: -1885179230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_25
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1116
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2346298e1facc694aa1cf1532a7f7e10
+      internalID: 846637875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_26
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1116
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc02bbefef049e54b926520a74fec71b
+      internalID: -931340489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 988
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a827124e33754a4cab6eddc76305bf6
+      internalID: 1914639117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 988
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d7114d92edc22245b85709765f53c0c
+      internalID: 1660501398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_29
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 988
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02505f8799c76d24285258ad7b3f86e4
+      internalID: 29189772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_30
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 988
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 512b2666636161b41a5d25986b69c8cf
+      internalID: -1513833436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_31
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 988
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404ca0add4bef624fa8f952210f9fa05
+      internalID: -90378109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_32
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 988
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b52bf455aac814d8791415d2f6e0c8
+      internalID: 1247808066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_33
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 988
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42cf1996d79bec344beb20349718592c
+      internalID: -854292780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_34
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 988
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b7a3ae21ca33ab43a93b6bdb8c26c48
+      internalID: 585425485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_35
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 988
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b3b0f37b39a094409660587e605a581
+      internalID: 2044199015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_36
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 988
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8902de4432668ae4b8ec4cc81a2bbb75
+      internalID: -237002395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 860
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2317c868da9261f49894fdfa543d5c5f
+      internalID: 1720510991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_38
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 860
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9cc3ec7efb2f644d8dc355923ceadea
+      internalID: 657588131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_39
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 860
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21621dffaf86ad44a8f7ccc7d36bca7b
+      internalID: -151221329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_40
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 860
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e9fcada996cdbb4ab084fda69a256d4
+      internalID: -1379308539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_41
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 860
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83238f453382a8348a3762ced26b7ac0
+      internalID: 1494538678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_42
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 860
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba924db640972e9478c6e06c6b4a759b
+      internalID: 1882931134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_43
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 860
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da325deccbc1f5a4a91362970f2182ac
+      internalID: 589937183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_44
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 860
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a50927a2e3df54f8b4d5ebbc6dd469
+      internalID: -524762617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap sprites orgnized - Anthill2_45
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 860
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8558693e86c222439d1f6a0489b22dd
+      internalID: 802554934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 524f9770c1849874ca012f92a63e1813
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tilemap sprites orgnized - Anthill2_0: -7515879003329578098
+      Tilemap sprites orgnized - Anthill2_1: 8147561605154779032
+      Tilemap sprites orgnized - Anthill2_10: -1999903579
+      Tilemap sprites orgnized - Anthill2_11: 805176840
+      Tilemap sprites orgnized - Anthill2_12: 1642166489
+      Tilemap sprites orgnized - Anthill2_13: -828508645
+      Tilemap sprites orgnized - Anthill2_14: -690654414
+      Tilemap sprites orgnized - Anthill2_15: 2074075965
+      Tilemap sprites orgnized - Anthill2_16: -2122894827
+      Tilemap sprites orgnized - Anthill2_17: -525453533
+      Tilemap sprites orgnized - Anthill2_18: -1756802756
+      Tilemap sprites orgnized - Anthill2_19: 69967112
+      Tilemap sprites orgnized - Anthill2_2: -1454617611
+      Tilemap sprites orgnized - Anthill2_20: -898594394
+      Tilemap sprites orgnized - Anthill2_21: 719464415
+      Tilemap sprites orgnized - Anthill2_22: 859657086
+      Tilemap sprites orgnized - Anthill2_23: -150668419
+      Tilemap sprites orgnized - Anthill2_24: -1885179230
+      Tilemap sprites orgnized - Anthill2_25: 846637875
+      Tilemap sprites orgnized - Anthill2_26: -931340489
+      Tilemap sprites orgnized - Anthill2_27: 1914639117
+      Tilemap sprites orgnized - Anthill2_28: 1660501398
+      Tilemap sprites orgnized - Anthill2_29: 29189772
+      Tilemap sprites orgnized - Anthill2_3: 1649449734
+      Tilemap sprites orgnized - Anthill2_30: -1513833436
+      Tilemap sprites orgnized - Anthill2_31: -90378109
+      Tilemap sprites orgnized - Anthill2_32: 1247808066
+      Tilemap sprites orgnized - Anthill2_33: -854292780
+      Tilemap sprites orgnized - Anthill2_34: 585425485
+      Tilemap sprites orgnized - Anthill2_35: 2044199015
+      Tilemap sprites orgnized - Anthill2_36: -237002395
+      Tilemap sprites orgnized - Anthill2_37: 1720510991
+      Tilemap sprites orgnized - Anthill2_38: 657588131
+      Tilemap sprites orgnized - Anthill2_39: -151221329
+      Tilemap sprites orgnized - Anthill2_4: 699059816
+      Tilemap sprites orgnized - Anthill2_40: -1379308539
+      Tilemap sprites orgnized - Anthill2_41: 1494538678
+      Tilemap sprites orgnized - Anthill2_42: 1882931134
+      Tilemap sprites orgnized - Anthill2_43: 589937183
+      Tilemap sprites orgnized - Anthill2_44: -524762617
+      Tilemap sprites orgnized - Anthill2_45: 802554934
+      Tilemap sprites orgnized - Anthill2_5: -90037650
+      Tilemap sprites orgnized - Anthill2_6: -146381582
+      Tilemap sprites orgnized - Anthill2_7: -1544098954
+      Tilemap sprites orgnized - Anthill2_8: -1788172545
+      Tilemap sprites orgnized - Anthill2_9: 1909926997
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
