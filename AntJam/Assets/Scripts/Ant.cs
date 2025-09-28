@@ -32,7 +32,8 @@ public class Ant : MonoBehaviour
 
         transform.DOMove(groundTrgt, moveTime).OnComplete(() =>
         {
-            transform.DORotate(new Vector3(0, 0, Vector2.SignedAngle(transform.position, lastTrgt)), moveTime);
+            Debug.Log(Vector2.SignedAngle(transform.position, lastTrgt));
+            transform.DORotate(new Vector3(0, 0, -Vector2.SignedAngle(transform.position, lastTrgt)), moveTime);
         });
 
     }

@@ -43,6 +43,7 @@ public class PlayerAnt : MonoBehaviour
         for (var i = 0; i < allAnts.Count; i++)
         {
             var ant =  allAnts[i];
+            ant.transform.SetParent(gameObject.transform.parent);
             if (i == 0)
             {
                 ant.Activate(chainStartPoint.position, targetPos);
@@ -57,7 +58,7 @@ public class PlayerAnt : MonoBehaviour
 
     public void AddAnt()
     {
-        var newAnt = Instantiate(antRef, antSpawnPoint);
+        var newAnt = Instantiate(antRef);
         newAnt.transform.position = Vector3.zero;
         allAnts.Add(newAnt);
         
