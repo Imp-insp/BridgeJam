@@ -21,7 +21,7 @@ public class PlayerMotor : MonoBehaviour
 
     public void ProcessMovement(Vector2 direction)
     {
-        var hit = Physics2D.Raycast(transform.position, -transform.up, rayDistance, groundMask);
+        var hit = Physics2D.CircleCast(transform.position, 0.2f,-transform.up, rayDistance, groundMask);
         Debug.DrawRay(transform.position, -transform.up, Color.red);
         
         if (hit.collider)
