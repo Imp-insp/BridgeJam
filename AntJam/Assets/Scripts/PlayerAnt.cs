@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerAnt : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class PlayerAnt : MonoBehaviour
     [SerializeField] private Transform antSpawnPoint;
     [Header("Stats")] [SerializeField] private int antAmount;
 
-    [Header("Ants")] [SerializeField] private Image arrow;
+    [Header("Ants")] [SerializeField] private GameObject arrow;
     [SerializeField] private List<Ant> allAnts = new();
 
     [Header("Control")] public bool areWalking;
@@ -38,6 +38,15 @@ public class PlayerAnt : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        var direction = InputHandler.mousePos - (Vector2) transform.position;
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        
+        arrow.transform.rotation = Quaternion.Slerp(arrow.transform.rotation, targetRotation, Time.deltaTime * 10);
+    }
+
     public void StartMakingBridge(Vector3 endPos)
     {
         StartCoroutine(MakeBridge(endPos));
@@ -46,7 +55,8 @@ public class PlayerAnt : MonoBehaviour
     private IEnumerator MakeBridge(Vector3 endPosition)
     {
         var targetPos = chainStartPoint.position - endPosition;
-
+        var startPos = chainStartPoint.position;
+        
         for (var i = 0; i < allAnts.Count; i++)
         {
             var ant =  allAnts[i];
@@ -54,11 +64,11 @@ public class PlayerAnt : MonoBehaviour
             areWalking = true;
             if (i == 0)
             {
-                ant.Activate(chainStartPoint.position, targetPos);
+                ant.Activate(startPos, targetPos);
             }
             else
             {
-                ant.Activate(chainStartPoint.position, targetPos, allAnts[i-1].end.position );
+                ant.Activate(startPos, targetPos, allAnts[i-1].end.position );
             }
             while (areWalking) yield return null;
         }

@@ -8,7 +8,7 @@ public class Ant : MonoBehaviour
 
 
     [Header("Ref")] public Transform end;
-
+    private BoxCollider2D _boxCollider2D;
     [HideInInspector] public SpriteRenderer sprRenderer;
     private PlayerAnt _playerAnt;
 
@@ -16,6 +16,7 @@ public class Ant : MonoBehaviour
     private void Awake()
     {
         sprRenderer = GetComponent<SpriteRenderer>();
+        _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     private void Start()
@@ -28,15 +29,20 @@ public class Ant : MonoBehaviour
 
     public void Activate(Vector3 groundTrgt, Vector3 lastTrgt)
     {
-        
         sprRenderer.enabled = true;
-
+        
         transform.DOMove(groundTrgt, moveTime).OnComplete(() =>
         {
-            Debug.Log(Vector2.SignedAngle(transform.position, lastTrgt));
-            transform.LookAt(lastTrgt);
-            _playerAnt.areWalking = false;
-            SetLayerRecursively(gameObject, LayerMask.NameToLayer("Wall"));
+            Vector2 direction = InputHandler.mousePos - (Vector2) transform.position;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.DORotateQuaternion(targetRotation, moveTime).OnComplete(() =>
+            {
+                Debug.Log(angle);
+                _playerAnt.areWalking = false;
+                _boxCollider2D.enabled = true;
+            });;
+            
         });
     }
 
@@ -46,11 +52,16 @@ public class Ant : MonoBehaviour
 
         transform.DOMove(groundTrgt, moveTime).OnComplete(() =>
         {
-            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + Vector2.SignedAngle(transform.position, lastTrgt));
-            transform.DOMove(nextPoint, moveTime).OnComplete(() =>
+            Vector2 direction = InputHandler.mousePos -(Vector2) transform.position;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.DORotateQuaternion(targetRotation, moveTime).OnComplete(() =>
             {
-                _playerAnt.areWalking = false;
-                SetLayerRecursively(gameObject, LayerMask.NameToLayer("Wall"));
+                transform.DOMove(nextPoint, moveTime).OnComplete(() =>
+                {
+                    _playerAnt.areWalking = false;
+                    _boxCollider2D.enabled = true;
+                });
             });
         });
     }
@@ -58,7 +69,7 @@ public class Ant : MonoBehaviour
 
     public void DeactivateColl()
     {
-        SetLayerRecursively(gameObject, LayerMask.NameToLayer("Default"));
+        _boxCollider2D.enabled = false;
     }
 
     /*public void PutCol(bool first)
@@ -69,19 +80,4 @@ public class Ant : MonoBehaviour
         cool.radius = 0.4f;
     }
     */
-
-    public void GoToPlace(Vector3 position)
-    {
-        //_rb2D.linearVelocity
-    }
-
-    private void SetLayerRecursively(GameObject obj, int newLayer)
-    {
-        obj.layer = newLayer;
-
-        foreach (Transform child in obj.transform)
-        {
-            SetLayerRecursively(child.gameObject, newLayer);
-        }
-    }
 }

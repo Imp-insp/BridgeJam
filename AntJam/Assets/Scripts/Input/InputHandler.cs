@@ -11,6 +11,8 @@ public class InputHandler : MonoBehaviour
     private PlayerMotor _playerMotor;
     private PlayerAnt _playerAnt;
 
+    [Header("inputNumbers")] public static Vector2 mousePos;
+
     private void Awake()
     {
         _playerMotor = GetComponent<PlayerMotor>(); 
@@ -23,6 +25,11 @@ public class InputHandler : MonoBehaviour
         onAnt.ShotChain.performed += ctx => _playerAnt.StartMakingBridge(Camera.ScreenToWorldPoint(onAnt.TargetPos.ReadValue<Vector2>()));
 
        
+    }
+
+    private void Update()
+    {
+        mousePos = Camera.ScreenToWorldPoint(onAnt.TargetPos.ReadValue<Vector2>());
     }
 
     private void OnEnable()
