@@ -266,7 +266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 6c9b7348288cd234f945adb59424c32b, type: 3}
-  clickSound: {fileID: 0}
+  clickSounds:
+  - {fileID: 8300000, guid: f54d7ac64d326ab47bf033b53cfec824, type: 3}
+  - {fileID: 8300000, guid: 747eae3383a35bc4098b189f7c5a18ed, type: 3}
   sfxAudioSource: {fileID: 1956436458}
 --- !u!1 &156002846
 GameObject:
@@ -415,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 8300000, guid: 6c9b7348288cd234f945adb59424c32b, type: 3}
-  clickSound: {fileID: 0}
+  clickSounds: []
   sfxAudioSource: {fileID: 1956436458}
 --- !u!1 &177252641
 GameObject:
@@ -535,7 +537,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177252641}
   serializedVersion: 8
-  lengthInSec: 1.5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -5336,14 +5338,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902693953}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 177252642}
   - {fileID: 919879070}
-  - {fileID: 1956436460}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &902693957
@@ -5508,7 +5509,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919879069}
   serializedVersion: 8
-  lengthInSec: 1.5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -10965,7 +10966,7 @@ GameObject:
   - component: {fileID: 1956436459}
   - component: {fileID: 1956436458}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: SFXManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11120,12 +11121,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956436457}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 902693956}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2041865315
 GameObject:
@@ -11185,7 +11186,7 @@ MonoBehaviour:
   fadePanel: {fileID: 1135498580}
   transitionDuration: 2.5
   shakeDuration: 2.5
-  shakeMagnitude: 0.12
+  shakeMagnitude: 0.25
   dustParticles:
   - {fileID: 177252644}
   - {fileID: 919879072}
@@ -11208,7 +11209,8 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 902693956}
   - {fileID: 2041865317}
+  - {fileID: 1956436460}
+  - {fileID: 902693956}
   - {fileID: 1274175566}
   - {fileID: 1104907748}
