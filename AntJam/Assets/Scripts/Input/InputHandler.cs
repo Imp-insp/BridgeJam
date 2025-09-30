@@ -19,10 +19,8 @@ public class InputHandler : MonoBehaviour
         _playerAnt = GetComponent<PlayerAnt>();
         antInput = new AntInput();
         onAnt = antInput.AntActions;
-
-       
         
-        onAnt.ShotChain.performed += ctx => _playerAnt.StartMakingBridge(Camera.ScreenToWorldPoint(onAnt.TargetPos.ReadValue<Vector2>()));
+        onAnt.ShotChain.performed += ctx => _playerAnt.StartMakingBridge();
 
        
     }

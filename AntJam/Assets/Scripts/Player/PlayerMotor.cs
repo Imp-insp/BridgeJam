@@ -10,8 +10,10 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private float rayDistance; // Distance to check for a surface
 
     [Header("Ref")] [SerializeField] private LayerMask groundMask; // Layers considered as walkable
-
+    [SerializeField] private Transform sidables;
     private Rigidbody2D _rb;
+
+    [Header("Control")] public static bool walkingOnAnts;
 
     private void Start()
     {
@@ -25,6 +27,7 @@ public class PlayerMotor : MonoBehaviour
         
         if (hit.collider)
         {
+            walkingOnAnts =  hit.collider.gameObject.layer == 6;
             // Stick to the surface
             var targetPos = hit.point + hit.normal * heightOffset; // offset by half height
             transform.position = Vector2.Lerp(transform.position, targetPos, Time.fixedDeltaTime * stickForce);
@@ -37,7 +40,7 @@ public class PlayerMotor : MonoBehaviour
             var tangent = Vector2.Perpendicular(hit.normal);
             var input = direction.x; 
             var velocity = tangent * -(input * moveSpeed);
-
+            if (direction.x != 0) sidables.localRotation = direction.x < 0 ? Quaternion.Euler(0,  180,0 ) : Quaternion.Euler(0, 0, 0);
             _rb.linearVelocity = velocity; // move along the surface
         }
         else

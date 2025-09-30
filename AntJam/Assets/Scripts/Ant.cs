@@ -1,10 +1,10 @@
 using System;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ant : MonoBehaviour
 {
-    [Header("Variables")] public static float moveTime => 0.5f;
 
 
     [Header("Ref")] public Transform end;
@@ -27,32 +27,28 @@ public class Ant : MonoBehaviour
         sprRenderer.enabled = false;
     }
 
-    public void Activate(Vector3 groundTrgt, Vector3 lastTrgt)
+    public void Activate(Vector2 direction)
     {
         sprRenderer.enabled = true;
+        var moveTime = PlayerAnt.Instance.antMoveTime;
         
-        transform.DOMove(groundTrgt, moveTime).OnComplete(() =>
-        {
-            Vector2 direction = InputHandler.mousePos - (Vector2) transform.position;
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.DORotateQuaternion(targetRotation, moveTime).OnComplete(() =>
             {
-                Debug.Log(angle);
                 _playerAnt.areWalking = false;
                 _boxCollider2D.enabled = true;
             });;
-            
-        });
+        
+       
     }
 
-    public void Activate(Vector3 groundTrgt, Vector3 lastTrgt, Vector3 nextPoint)
+    public void Activate(Vector3 nextPoint, Vector2 direction)
     {
         sprRenderer.enabled = true;
-
-        transform.DOMove(groundTrgt, moveTime).OnComplete(() =>
-        {
-            Vector2 direction = InputHandler.mousePos -(Vector2) transform.position;
+        var moveTime = PlayerAnt.Instance.antMoveTime;
+        
+           
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.DORotateQuaternion(targetRotation, moveTime).OnComplete(() =>
@@ -63,14 +59,25 @@ public class Ant : MonoBehaviour
                     _boxCollider2D.enabled = true;
                 });
             });
-        });
     }
 
 
     public void DeactivateColl()
     {
         _boxCollider2D.enabled = false;
+        sprRenderer.enabled = false;
+        
+        transform.DOKill();
+        
     }
+
+    /*private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            PlayerAnt.hitWall = true;
+        }
+    }*/
 
     /*public void PutCol(bool first)
     {
