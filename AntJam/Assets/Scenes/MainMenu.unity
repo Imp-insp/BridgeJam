@@ -15991,7 +15991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf06f987fc5bf804b90d887cf43427f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneName: SampleScene
+  gameSceneName: Anthill
   transitionCurve:
     serializedVersion: 2
     m_Curve:

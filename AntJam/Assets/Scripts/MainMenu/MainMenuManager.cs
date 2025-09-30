@@ -6,7 +6,7 @@ using System.Collections;
 public class MainMenuManager : MonoBehaviour
 {
     [Header("Scene to Load")]
-    [SerializeField] private string gameSceneName = "GameScene";
+    [SerializeField] private string gameSceneName = "AntHill";
 
     [Header("Transition Settings")]
     [SerializeField] private AnimationCurve transitionCurve; // Curva para suavizar o movimento principal
@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private float shakeMagnitude = 0.1f;
 
     [Header("Effects")]
-    // Use uma lista (array) para poder adicionar quantos sistemas de partículas quiser.
+    // Use uma lista (array) para poder adicionar quantos sistemas de partï¿½culas quiser.
     [SerializeField] private ParticleSystem[] dustParticles;
 
     private bool isTransitioning = false;
@@ -42,16 +42,16 @@ public class MainMenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    private IEnumerator PlayTransitionCoroutine() // Animação do tremor, partículas, fade in da tela preta e da câmera descendo acontecem aqui!
+    private IEnumerator PlayTransitionCoroutine() // Animaï¿½ï¿½o do tremor, partï¿½culas, fade in da tela preta e da cï¿½mera descendo acontecem aqui!
     {
         isTransitioning = true;
 
-        // Inicia todos os sistemas de partículas que estiverem na lista.
+        // Inicia todos os sistemas de partï¿½culas que estiverem na lista.
         if (dustParticles != null)
         {
             foreach (ParticleSystem particle in dustParticles)
             {
-                if (particle != null)
+                if (particle)
                 {
                     particle.Play();
                 }

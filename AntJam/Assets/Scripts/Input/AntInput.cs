@@ -117,6 +117,15 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""831c6a7f-3dcb-4fc1-b1a5-089eced28c71"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -251,6 +260,17 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
                     ""action"": ""TargetPos"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05a1ba1c-6511-47ea-85e8-23a63daaa0f9"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -262,6 +282,7 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
         m_AntActions_Movement = m_AntActions.FindAction("Movement", throwIfNotFound: true);
         m_AntActions_ShotChain = m_AntActions.FindAction("ShotChain", throwIfNotFound: true);
         m_AntActions_TargetPos = m_AntActions.FindAction("TargetPos", throwIfNotFound: true);
+        m_AntActions_Menu = m_AntActions.FindAction("Menu", throwIfNotFound: true);
     }
 
     ~@AntInput()
@@ -345,6 +366,7 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_AntActions_Movement;
     private readonly InputAction m_AntActions_ShotChain;
     private readonly InputAction m_AntActions_TargetPos;
+    private readonly InputAction m_AntActions_Menu;
     /// <summary>
     /// Provides access to input actions defined in input action map "AntActions".
     /// </summary>
@@ -368,6 +390,10 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "AntActions/TargetPos".
         /// </summary>
         public InputAction @TargetPos => m_Wrapper.m_AntActions_TargetPos;
+        /// <summary>
+        /// Provides access to the underlying input action "AntActions/Menu".
+        /// </summary>
+        public InputAction @Menu => m_Wrapper.m_AntActions_Menu;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -403,6 +429,9 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
             @TargetPos.started += instance.OnTargetPos;
             @TargetPos.performed += instance.OnTargetPos;
             @TargetPos.canceled += instance.OnTargetPos;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
         }
 
         /// <summary>
@@ -423,6 +452,9 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
             @TargetPos.started -= instance.OnTargetPos;
             @TargetPos.performed -= instance.OnTargetPos;
             @TargetPos.canceled -= instance.OnTargetPos;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
         }
 
         /// <summary>
@@ -484,5 +516,12 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTargetPos(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Menu" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMenu(InputAction.CallbackContext context);
     }
 }
