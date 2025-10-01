@@ -1,15 +1,37 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Button))]
 public class UIButtonSounds : MonoBehaviour, IPointerEnterHandler
 {
+    private static List<UIButtonSounds> allInstances = new List<UIButtonSounds>();
+
+    public static void DisableAllButtons()
+    {
+        foreach (UIButtonSounds instance in allInstances)
+        {
+            if (instance != null)
+            {
+                instance.button.interactable = false;
+            }
+        }
+    }
+
+    public static void EnableAllButtons()
+    {
+        foreach (UIButtonSounds instance in allInstances)
+        {
+            if (instance != null)
+            {
+                instance.button.interactable = true;
+            }
+        }
+    }
+
     [Header("Audio Clips")]
     [SerializeField] private AudioClip hoverSound;
-
-    // A MUDANÇA PRINCIPAL ESTÁ AQUI:
-    // Trocamos um único AudioClip por um array (lista) de AudioClips.
     [SerializeField] private AudioClip[] clickSounds;
 
     [Header("Audio Source")]
@@ -20,37 +42,46 @@ public class UIButtonSounds : MonoBehaviour, IPointerEnterHandler
     void Awake()
     {
         button = GetComponent<Button>();
-
         if (sfxAudioSource == null)
         {
-            sfxAudioSource = Object.FindFirstObjectByType<AudioSource>();
+            sfxAudioSource = FindFirstObjectByType<AudioSource>();
         }
     }
 
     void OnEnable()
     {
-        button.onClick.AddListener(PlayClickSounds); // Mudamos o nome da função para o plural
+        if (!allInstances.Contains(this))
+        {
+            allInstances.Add(this);
+        }
+        button.onClick.AddListener(PlayClickSounds);
     }
 
     void OnDisable()
     {
+        allInstances.Remove(this);
         button.onClick.RemoveListener(PlayClickSounds);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        // GARANTIA DUPLA:
+        // Se o botão não estiver interativo, a função para aqui e não toca o som.
+        if (!button.interactable)
+        {
+            return;
+        }
+
         if (hoverSound != null && sfxAudioSource != null)
         {
             sfxAudioSource.PlayOneShot(hoverSound);
         }
     }
 
-    // Esta função agora percorre a lista e toca todos os sons.
     private void PlayClickSounds()
     {
         if (clickSounds != null && sfxAudioSource != null)
         {
-            // Loop "foreach" que passa por cada clipe de áudio na nossa lista.
             foreach (AudioClip clip in clickSounds)
             {
                 if (clip != null)

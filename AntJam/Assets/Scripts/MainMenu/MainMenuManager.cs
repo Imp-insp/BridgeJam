@@ -20,11 +20,17 @@ public class MainMenuManager : MonoBehaviour
     // Use uma lista (array) para poder adicionar quantos sistemas de part�culas quiser.
     [SerializeField] private ParticleSystem[] dustParticles;
 
-    private bool isTransitioning = false;
+    public static bool isTransitioning = false;
     private Vector3 cameraStartPosition;
+
+    // Dentro do script MainMenuManager.cs
 
     void Start()
     {
+        isTransitioning = false;
+        Time.timeScale = 1.0f;
+        UIButtonSounds.EnableAllButtons();
+
         if (mainCamera != null)
         {
             cameraStartPosition = mainCamera.transform.position;
@@ -45,6 +51,7 @@ public class MainMenuManager : MonoBehaviour
     private IEnumerator PlayTransitionCoroutine() // Anima��o do tremor, part�culas, fade in da tela preta e da c�mera descendo acontecem aqui!
     {
         isTransitioning = true;
+        UIButtonSounds.DisableAllButtons();
 
         // Inicia todos os sistemas de part�culas que estiverem na lista.
         if (dustParticles != null)
