@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAnt : MonoBehaviour
 {
@@ -13,15 +14,20 @@ public class PlayerAnt : MonoBehaviour
     [SerializeField] private Transform chainStartPoint;
 
 
-    [Header("Stats")] [SerializeField] private int antAmount;
+    [Header("Stats")] 
     [SerializeField] private float staticMoveTime;
     public float antMoveTime;
     [SerializeField] private float bridgeCd;
 
-    [Header("Ants")] [SerializeField] private List<Ant> allAnts = new();
+    [Header("Ants")] 
+    [SerializeField] private int antAmount;
+
+    [SerializeField] private int foodAmount;
+    private List<Ant> allAnts = new();
 
     [Header("Ui")] [SerializeField] private GameObject arrow;
     [SerializeField] private TextMeshProUGUI antAmountText;
+    [SerializeField] private List<Image> foodNodes;
 
 
     [Header("Control")] public bool areWalking;
@@ -120,9 +126,13 @@ public class PlayerAnt : MonoBehaviour
         hitWall = false;
     }
 
-    private void UpdtUi(int antAmount)
+    private void UpdtUi(int antUiAmount)
     {
-        antAmountText.text = antAmount.ToString();
+      if (antUiAmount != -1)  antAmountText.text = antUiAmount.ToString();
+        for (var i = 0; i < foodAmount; i++)
+        {
+            
+        }
     }
     
     public void AddAnt()
@@ -131,5 +141,14 @@ public class PlayerAnt : MonoBehaviour
 
         allAnts.Add(newAnt);
         UpdtUi(allAnts.Count);
+    }
+    
+    public void AddFood(int value)
+    {
+        foodAmount += value;
+        UpdtUi(-1);
+        if (foodAmount < 3) return;
+        foodAmount -= 3;
+        AddAnt();
     }
 }

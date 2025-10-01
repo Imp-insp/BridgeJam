@@ -34,7 +34,7 @@ public class Egg : Interactable
             for (var i = 0; i < trambleTimes; i++)
             {
                 var targetTramble = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y,
-                    transform.eulerAngles.z + trambleOffSet);
+                    transform.eulerAngles.z - trambleOffSet);
                 transform.DORotate(targetTramble, trambleCd / trambleTimes).SetLoops(2, LoopType.Yoyo);
                 trambleOffSet = -trambleOffSet;
                 yield return new WaitForSeconds(trambleCd / trambleTimes *2);

@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance;
 
     [Header("Ui")] [SerializeField] private GameObject pauseMenu;
+
+    [Header("Save")] [SerializeField] private Vector2 lastSave;
     private void Awake()
     {
         #region Singleton
@@ -17,9 +19,19 @@ public class PlayerManager : MonoBehaviour
         #endregion
     }
 
-    public static void Die()
+    private void Start()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        lastSave = transform.position;
+    }
+
+    public void Die()
+    {
+        transform.position = lastSave;
+    }
+
+    public void SetCheckPoint(Vector2 newSave)
+    {
+        lastSave = newSave;
     }
 
     public void PauseMenu()
