@@ -38,8 +38,8 @@ public class PlayerMotor : MonoBehaviour
                 Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * stickForce);
 
             var tangent = Vector2.Perpendicular(hit.normal);
-            var input = direction.x; 
-            var velocity = tangent * -(input * moveSpeed);
+            var input = tangent.x > 0? direction.x: -direction.x; 
+            var velocity = tangent * (input * moveSpeed);
             if (direction.x != 0) sidables.localRotation = direction.x < 0 ? Quaternion.Euler(0,  180,0 ) : Quaternion.Euler(0, 0, 0);
             _rb.linearVelocity = velocity; // move along the surface
         }

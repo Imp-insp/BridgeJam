@@ -7,7 +7,9 @@ public class FlyingEnemy : MonoBehaviour
     public float waitTime = 1f; // Time to wait at each point
     public bool loop = true; // If false, will ping-pong
 
-    [Header("Optional")] public bool flipOnDirectionChange = true; // Flip sprite when turning
+    [Header("Optional")] 
+    public bool stopsAtPatrol = false;
+    public bool flipOnDirectionChange = true; // Flip sprite when turning
 
     private int currentIndex = 0;
     private bool goingForward = true;
@@ -25,7 +27,7 @@ public class FlyingEnemy : MonoBehaviour
     {
         if (waypoints.Length < 2) return;
 
-        if (waitCounter > 0f)
+        if (waitCounter > 0f && stopsAtPatrol)
         {
             waitCounter -= Time.fixedDeltaTime;
             return;

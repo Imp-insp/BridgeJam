@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03005f8182f94fe43b5cfc4db5889f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heightOffset: 0.5
-  moveSpeed: 5
+  heightOffset: 0.2
+  moveSpeed: 2
   stickForce: 10
   rayDistance: 6
   groundMask:

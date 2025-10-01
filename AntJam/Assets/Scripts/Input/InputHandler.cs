@@ -26,8 +26,6 @@ public class InputHandler : MonoBehaviour
         
         onAnt.ShotChain.performed += ctx => _playerAnt.StartMakingBridge();
         onAnt.Menu.performed += ctx => _playerManager.PauseMenu();
-
-       
     }
     
     private void Update()

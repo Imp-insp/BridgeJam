@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &599177915293841636
+--- !u!1 &6441359194122823376
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1619165556407691794}
-  - component: {fileID: 2580047309663877598}
-  - component: {fileID: 1290620734925612653}
-  - component: {fileID: 4519586916327779098}
+  - component: {fileID: 7060092902416657972}
+  - component: {fileID: 4801430067039367190}
+  - component: {fileID: 4999612642538425123}
+  - component: {fileID: 5163334150463542191}
+  - component: {fileID: 8339177646961782692}
   m_Layer: 0
-  m_Name: AntEgg
+  m_Name: Food
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1619165556407691794
+--- !u!4 &7060092902416657972
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599177915293841636}
+  m_GameObject: {fileID: 6441359194122823376}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.15, y: 0.3, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: 0, y: 0, z: -0.014311298, w: 0.9998976}
+  m_LocalPosition: {x: 25.222248, y: -2.169, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2580047309663877598
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.64}
+--- !u!212 &4801430067039367190
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599177915293841636}
+  m_GameObject: {fileID: 6441359194122823376}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 5542493843419734156, guid: ee1408d765bca344690023f5fb1bf86d, type: 3}
+  m_Sprite: {fileID: -8610859392739844175, guid: bfdbdbd44ed12db4892073fdac52ec0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -89,13 +90,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &1290620734925612653
+--- !u!70 &4999612642538425123
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599177915293841636}
+  m_GameObject: {fileID: 6441359194122823376}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -126,20 +127,32 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &4519586916327779098
+--- !u!114 &5163334150463542191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599177915293841636}
+  m_GameObject: {fileID: 6441359194122823376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2566a1556b81dfc4d8cbe3c81b624e5a, type: 3}
+  m_Script: {fileID: 11500000, guid: c69c2ef38f8285c45a4714e8f1ae06c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trambleOffSet: 4
-  trambleTimes: 12
-  trambleCd: 2
-  shakeOffset: 23
-  animTime: 0.25
+  foodValue: 1
+--- !u!114 &8339177646961782692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6441359194122823376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ab477476ac45042afdf7aa17986bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squishOffSet: 0.1
+  squishCd: 1
+  trambleOffSet: 13
+  trambleCd: 0.5

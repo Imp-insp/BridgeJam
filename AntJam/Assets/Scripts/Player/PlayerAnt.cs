@@ -53,6 +53,11 @@ public class PlayerAnt : MonoBehaviour
             AddAnt();
         }
         
+        foreach (var img in foodNodes)
+        {
+            img.enabled = false;
+        }
+        
     }
 
     private void Update()
@@ -133,7 +138,7 @@ public class PlayerAnt : MonoBehaviour
       if (antUiAmount != -1)  antAmountText.text = antUiAmount.ToString();
         for (var i = 0; i < foodAmount; i++)
         {
-            
+            foodNodes[i].enabled = true;
         }
     }
     
@@ -150,7 +155,18 @@ public class PlayerAnt : MonoBehaviour
         foodAmount += value;
         UpdtUi(-1);
         if (foodAmount < 3) return;
+        CompleteFood();
+       
+    }
+
+    private void CompleteFood()
+    {
         foodAmount -= 3;
         AddAnt();
+        
+        foreach (var img in foodNodes)
+        {
+            img.enabled = false;
+        }
     }
 }

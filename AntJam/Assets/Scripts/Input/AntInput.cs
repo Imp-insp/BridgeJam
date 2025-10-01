@@ -92,6 +92,15 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
             ""id"": ""d94b1294-f035-4e15-96ac-1ea21a4b3765"",
             ""actions"": [
                 {
+                    ""name"": ""StartMoving"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca30230b-4171-4f4a-b234-5484eeef9a53"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Movement"",
                     ""type"": ""PassThrough"",
                     ""id"": ""26794bce-c35d-4a6a-933d-531b9f846910"",
@@ -271,6 +280,28 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53ca5c19-d615-4217-8404-fdcafc77fad0"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartMoving"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""acaf0455-51f0-453e-aa5d-49e184409f67"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartMoving"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -279,6 +310,7 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
 }");
         // AntActions
         m_AntActions = asset.FindActionMap("AntActions", throwIfNotFound: true);
+        m_AntActions_StartMoving = m_AntActions.FindAction("StartMoving", throwIfNotFound: true);
         m_AntActions_Movement = m_AntActions.FindAction("Movement", throwIfNotFound: true);
         m_AntActions_ShotChain = m_AntActions.FindAction("ShotChain", throwIfNotFound: true);
         m_AntActions_TargetPos = m_AntActions.FindAction("TargetPos", throwIfNotFound: true);
@@ -363,6 +395,7 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
     // AntActions
     private readonly InputActionMap m_AntActions;
     private List<IAntActionsActions> m_AntActionsActionsCallbackInterfaces = new List<IAntActionsActions>();
+    private readonly InputAction m_AntActions_StartMoving;
     private readonly InputAction m_AntActions_Movement;
     private readonly InputAction m_AntActions_ShotChain;
     private readonly InputAction m_AntActions_TargetPos;
@@ -378,6 +411,10 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
         public AntActionsActions(@AntInput wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "AntActions/StartMoving".
+        /// </summary>
+        public InputAction @StartMoving => m_Wrapper.m_AntActions_StartMoving;
         /// <summary>
         /// Provides access to the underlying input action "AntActions/Movement".
         /// </summary>
@@ -420,6 +457,9 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_AntActionsActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_AntActionsActionsCallbackInterfaces.Add(instance);
+            @StartMoving.started += instance.OnStartMoving;
+            @StartMoving.performed += instance.OnStartMoving;
+            @StartMoving.canceled += instance.OnStartMoving;
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
@@ -443,6 +483,9 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
         /// <seealso cref="AntActionsActions" />
         private void UnregisterCallbacks(IAntActionsActions instance)
         {
+            @StartMoving.started -= instance.OnStartMoving;
+            @StartMoving.performed -= instance.OnStartMoving;
+            @StartMoving.canceled -= instance.OnStartMoving;
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
@@ -495,6 +538,13 @@ public partial class @AntInput: IInputActionCollection2, IDisposable
     /// <seealso cref="AntActionsActions.RemoveCallbacks(IAntActionsActions)" />
     public interface IAntActionsActions
     {
+        /// <summary>
+        /// Method invoked when associated input action "StartMoving" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnStartMoving(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Movement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

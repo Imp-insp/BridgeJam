@@ -15,11 +15,17 @@ public class Ant : MonoBehaviour
     [SerializeField] private float trambleOffSet;
     [SerializeField] private float trambleCd;
 
+    [Header("WallCheck")]
+    [SerializeField] private float rayDistance;
+    [SerializeField] private LayerMask groundMask;
 
+    [Header("BugFix")] private Vector2 _originalScale;
     private void Awake()
     {
         sprRenderer = GetComponent<SpriteRenderer>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
+
+        _originalScale = transform.localScale;
     }
 
     private void Start()
@@ -49,7 +55,7 @@ public class Ant : MonoBehaviour
     {
         sprRenderer.enabled = true;
         var moveTime = PlayerAnt.Instance.antMoveTime;
-        
+       
 
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -75,6 +81,8 @@ public class Ant : MonoBehaviour
 
     private void Tremble()
     {
+        transform.localScale = _originalScale;
+        
         var targetSquish = new Vector3(transform.localScale.x + squishOffSet, transform.localScale.y,
             transform.localScale.z);
         transform.localScale = new Vector3(transform.localScale.x - squishOffSet, transform.localScale.y,
@@ -90,14 +98,17 @@ public class Ant : MonoBehaviour
         transform.DORotate(targetTramble, trambleCd).SetLoops(-1, LoopType.Yoyo);
     }
 
-    
-    /*private void OnTriggerEnter2D(Collider2D other)
+    private void CheckForWall()
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        var hit = Physics2D.CircleCast(end.position, 0.2f,-transform.up, rayDistance, groundMask);
+
+        if (hit.collider)
         {
             PlayerAnt.hitWall = true;
         }
-    }*/
+        
+    }
+    
 
     /*public void PutCol(bool first)
     {
