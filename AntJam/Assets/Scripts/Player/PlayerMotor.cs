@@ -14,6 +14,7 @@ public class PlayerMotor : MonoBehaviour
     private Rigidbody2D _rb;
 
     [Header("Control")] public static bool walkingOnAnts;
+    public int flipped;
     
     private void Start()
     {
@@ -38,15 +39,28 @@ public class PlayerMotor : MonoBehaviour
                 Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * stickForce);
 
             var tangent = Vector2.Perpendicular(hit.normal);
-            var input = tangent.x > 0? direction.x: -direction.x; 
+            var input = -direction.x * flipped;
             var velocity = tangent * (input * moveSpeed);
-            if (direction.x != 0) sidables.localRotation = direction.x < 0 ? Quaternion.Euler(0,  180,0 ) : Quaternion.Euler(0, 0, 0);
+            if (direction.x != 0) sidables.localRotation = -input < 0 ? Quaternion.Euler(0,  180,0 ) : Quaternion.Euler(0, 0, 0);
             _rb.linearVelocity = velocity; // move along the surface
         }
         else
         {
             // If no surface detected, stop movement
             _rb.linearVelocity = Vector2.zero;
+        }
+    }
+
+    public void StartMovement()
+    {
+       
+        if (Math.Abs(transform.eulerAngles.z) > 92)
+        {
+            flipped = -1;
+        }
+        else
+        {
+            flipped = 1;
         }
     }
 }
