@@ -3,6 +3,6 @@ public class CheckPoint : Interactable
 {
     public override void Interact()
     {
-        PlayerManager.Instance.SetCheckPoint(transform.position);
+        PlayerManager.Instance.SetCheckPoint(transform.position, transform.rotation);
     }
 }

@@ -209,3 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   end: {fileID: 4320145985923790613}
   sprRenderer: {fileID: 0}
+  squishOffSet: 0.05
+  squishCd: 0.1
+  trambleOffSet: 1
+  trambleCd: 0.2

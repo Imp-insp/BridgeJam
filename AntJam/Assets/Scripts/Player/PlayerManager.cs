@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
@@ -8,7 +9,11 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Ui")] [SerializeField] private GameObject pauseMenu;
 
-    [Header("Save")] [SerializeField] private Vector2 lastSave;
+    [Header("Save")] [SerializeField] private Vector2 lastPos;
+    [SerializeField] private Quaternion lastRot;
+    
+    [Header("Ref")]
+    private PlayerInput _playerInput;
     private void Awake()
     {
         #region Singleton
@@ -21,17 +26,21 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        lastSave = transform.position;
+        _playerInput = GetComponent<PlayerInput>();
+        lastPos = transform.position;
+        lastRot = transform.rotation;
     }
 
     public void Die()
     {
-        transform.position = lastSave;
+        transform.position = lastPos;
+        transform.rotation = lastRot;
     }
 
-    public void SetCheckPoint(Vector2 newSave)
+    public void SetCheckPoint(Vector2 newPos, Quaternion newRot)
     {
-        lastSave = newSave;
+        lastPos = newPos;
+        lastRot = newRot;
     }
 
     public void PauseMenu()

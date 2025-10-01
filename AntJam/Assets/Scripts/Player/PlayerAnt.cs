@@ -98,6 +98,8 @@ public class PlayerAnt : MonoBehaviour
 
     private IEnumerator MakeBridge()
     {
+        if (Time.timeScale == 0) yield break;
+        
         var direction = InputHandler.mousePos - (Vector2)transform.position;
         var startPos = chainStartPoint.position;
         for (var i = 0; i < allAnts.Count; i++)
