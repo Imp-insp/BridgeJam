@@ -15,6 +15,7 @@ public class PlayerMotor : MonoBehaviour
 
     [Header("Control")] public static bool walkingOnAnts;
     public int flipped;
+    private Vector2 tangent;
     
     private void Start()
     {
@@ -38,7 +39,7 @@ public class PlayerMotor : MonoBehaviour
             transform.rotation =
                 Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * stickForce);
 
-            var tangent = Vector2.Perpendicular(hit.normal);
+            tangent = Vector2.Perpendicular(hit.normal);
             var input = -direction.x * flipped;
             var velocity = tangent * (input * moveSpeed);
             if (direction.x != 0) sidables.localRotation = -input < 0 ? Quaternion.Euler(0,  180,0 ) : Quaternion.Euler(0, 0, 0);
@@ -53,14 +54,16 @@ public class PlayerMotor : MonoBehaviour
 
     public void StartMovement()
     {
-       
-        if (Math.Abs(transform.eulerAngles.z) > 92)
-        {
-            flipped = -1;
-        }
-        else
-        {
-            flipped = 1;
-        }
+            
+            Debug.Log(tangent.x);
+            if (tangent.x > 0)
+            {
+                flipped = -1;
+            }
+            else if (tangent.x < 0)
+            {
+                flipped = 1;
+            }
     }
+    
 }
