@@ -49,7 +49,6 @@ public class FlyingEnemy : MonoBehaviour
         {
             Vector3 scale = transform.localScale;
             scale.x = Mathf.Sign(side) * Mathf.Abs(scale.x);
-            Debug.Log(scale);
             transform.localScale = scale;
         }
     }
