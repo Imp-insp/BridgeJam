@@ -39,21 +39,28 @@ public class PlayerMotor : MonoBehaviour
 
     public void ProcessMovement(Vector2 direction)
     {
-        if (_tangent.x > 0)
-        {
-            flip = -1;
-        }
-        else if (_tangent.x < 0)
-        {
-            flip = 1;
-        }
         
         var hit = Physics2D.CircleCast(transform.position, 0.2f,-transform.up, rayDistance, groundMask);
        
         if (hit.collider)
         {
+            
             rayDistance = _originalRayDistance;
             WalkingOnAnts =  hit.collider.gameObject.layer == 6;
+            
+            if (!WalkingOnAnts)
+            {
+                if (_tangent.x > 0)
+                {
+                    flip = -1;
+                }
+                else if (_tangent.x < 0)
+                {
+                    flip = 1;
+                }
+            }
+            
+            
             // Stick to the surface
             var targetPos = hit.point + hit.normal * heightOffset; 
             transform.position = Vector2.Lerp(transform.position, targetPos, Time.fixedDeltaTime * stickForce);

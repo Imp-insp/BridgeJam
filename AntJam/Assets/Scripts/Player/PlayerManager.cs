@@ -12,8 +12,6 @@ public class PlayerManager : MonoBehaviour
     [Header("Save")] [SerializeField] private Vector2 lastPos;
     [SerializeField] private Quaternion lastRot;
     
-    [Header("Ref")]
-    private PlayerInput _playerInput;
     private void Awake()
     {
         #region Singleton
@@ -26,7 +24,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        _playerInput = GetComponent<PlayerInput>();
         lastPos = transform.position;
         lastRot = transform.rotation;
     }
@@ -35,6 +32,7 @@ public class PlayerManager : MonoBehaviour
     {
         transform.position = lastPos;
         transform.rotation = lastRot;
+        PlayerAnt.Instance.DeactivateBridge();
     }
 
     public void SetCheckPoint(Vector2 newPos, Quaternion newRot)
