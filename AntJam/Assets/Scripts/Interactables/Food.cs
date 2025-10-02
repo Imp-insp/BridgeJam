@@ -7,6 +7,7 @@ public class Food : Interactable
     
     public override void Interact()
     {
+        AudioManager.Instance.Play("Eat");
         PlayerAnt.Instance.AddFood(foodValue);
         transform.DOKill();
         Destroy(gameObject.transform.parent.gameObject);

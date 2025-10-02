@@ -14,12 +14,10 @@ public class PlayerAnt : MonoBehaviour
     [SerializeField] private Transform chainStartPoint;
 
 
-    [Header("Stats")] 
-    public float antMoveTime;
+    [Header("Stats")] public float antMoveTime;
     [SerializeField] private float bridgeCd;
 
-    [Header("Ants")] 
-    [SerializeField] private int antAmount;
+    [Header("Ants")] [SerializeField] private int antAmount;
 
     [SerializeField] private int foodAmount;
     private List<Ant> allAnts = new();
@@ -51,12 +49,11 @@ public class PlayerAnt : MonoBehaviour
         {
             AddAnt();
         }
-        
+
         foreach (var img in foodNodes)
         {
             img.enabled = false;
         }
-        
     }
 
     private void Update()
@@ -75,6 +72,7 @@ public class PlayerAnt : MonoBehaviour
 
         if (_bridgeCoroutine != null)
         {
+            AudioManager.Instance.Play("Ant Back");
             DeactivateBridge();
             return;
         }
@@ -84,15 +82,16 @@ public class PlayerAnt : MonoBehaviour
 
     public void DeactivateBridge()
     {
-        StopCoroutine(_bridgeCoroutine);
+        if (_bridgeCoroutine != null) StopCoroutine(_bridgeCoroutine);
         _bridgeCoroutine = null;
         foreach (var ant in allAnts)
         {
             ant.DeactivateColl();
         }
+
         UpdtUi(allAnts.Count);
     }
-    
+
     private IEnumerator BridgeCd()
     {
         _bridgeOnCd = true;
@@ -103,7 +102,9 @@ public class PlayerAnt : MonoBehaviour
     private IEnumerator MakeBridge()
     {
         if (Time.timeScale == 0) yield break;
-        
+
+        AudioManager.Instance.Play("Shoot");
+
         var direction = InputHandler.mousePos - (Vector2)transform.position;
         var startPos = chainStartPoint.position;
         for (var i = 0; i < allAnts.Count; i++)
@@ -129,18 +130,19 @@ public class PlayerAnt : MonoBehaviour
                 yield return null;
             }
         }
+
         hitWall = false;
     }
 
     private void UpdtUi(int antUiAmount)
     {
-      if (antUiAmount != -1)  antAmountText.text = antUiAmount.ToString();
+        if (antUiAmount != -1) antAmountText.text = antUiAmount.ToString();
         for (var i = 0; i < foodAmount; i++)
         {
             foodNodes[i].enabled = true;
         }
     }
-    
+
     public void AddAnt()
     {
         var newAnt = Instantiate(antRef);
@@ -148,21 +150,20 @@ public class PlayerAnt : MonoBehaviour
         allAnts.Add(newAnt);
         UpdtUi(allAnts.Count);
     }
-    
+
     public void AddFood(int value)
     {
         foodAmount += value;
         UpdtUi(-1);
         if (foodAmount < 3) return;
         CompleteFood();
-       
     }
 
     private void CompleteFood()
     {
         foodAmount -= 3;
         AddAnt();
-        
+
         foreach (var img in foodNodes)
         {
             img.enabled = false;

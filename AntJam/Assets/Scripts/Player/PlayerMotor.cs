@@ -35,6 +35,15 @@ public class PlayerMotor : MonoBehaviour
     private void Update()
     {
         sidaAnim.SetBool(IsWalking, _isWalking);
+
+        if (_isWalking)
+        {
+            AudioManager.Instance.PlayOnce("Walk");
+        }
+        else
+        {
+            AudioManager.Instance.Pause("Walk");
+        }
     }
 
     public void ProcessMovement(Vector2 direction)
@@ -48,8 +57,7 @@ public class PlayerMotor : MonoBehaviour
             rayDistance = _originalRayDistance;
             WalkingOnAnts =  hit.collider.gameObject.layer == 6;
             
-            if (!WalkingOnAnts)
-            {
+            
                 if (_tangent.x > 0)
                 {
                     flip = -1;
@@ -58,7 +66,7 @@ public class PlayerMotor : MonoBehaviour
                 {
                     flip = 1;
                 }
-            }
+            
             
             
             // Stick to the surface

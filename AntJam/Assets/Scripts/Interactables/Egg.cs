@@ -21,6 +21,7 @@ public class Egg : Interactable
 
     public override void Interact()
     {
+        AudioManager.Instance.Play("Collect Egg");
         PlayerAnt.Instance.AddAnt();
         transform.DOKill();
         Destroy(gameObject.transform.parent.gameObject);
