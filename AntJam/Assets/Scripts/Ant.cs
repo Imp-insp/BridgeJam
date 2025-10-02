@@ -39,14 +39,16 @@ public class Ant : MonoBehaviour
     public void Activate(Vector2 direction)
     {
         sprRenderer.enabled = true;
+        _boxCollider2D.enabled = true;
         var moveTime = PlayerAnt.Instance.antMoveTime;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.DORotateQuaternion(targetRotation, moveTime).OnComplete(() =>
         {
             Tremble();
+            CheckForWall();
             _playerAnt.areWalking = false;
-            _boxCollider2D.enabled = true;
+            
         });
         ;
     }
@@ -55,7 +57,7 @@ public class Ant : MonoBehaviour
     {
         sprRenderer.enabled = true;
         var moveTime = PlayerAnt.Instance.antMoveTime;
-       
+        _boxCollider2D.enabled = true;
 
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -64,8 +66,8 @@ public class Ant : MonoBehaviour
             Tremble();
             transform.DOMove(nextPoint, moveTime).OnComplete(() =>
             {
+                CheckForWall();
                 _playerAnt.areWalking = false;
-                _boxCollider2D.enabled = true;
             });
         });
     }
@@ -100,12 +102,12 @@ public class Ant : MonoBehaviour
 
     private void CheckForWall()
     {
-        var hit = Physics2D.CircleCast(end.position, 0.2f,-transform.up, rayDistance, groundMask);
+        /*var hit = Physics2D.CircleCast(end.position, 0.2f,-transform.up, rayDistance, groundMask);
 
         if (hit.collider)
         {
             PlayerAnt.hitWall = true;
-        }
+        }*/
         
     }
     

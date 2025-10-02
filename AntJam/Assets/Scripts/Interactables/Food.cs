@@ -9,8 +9,7 @@ public class Food : Interactable
     {
         PlayerAnt.Instance.AddFood(foodValue);
         transform.DOKill();
-        Destroy(gameObject);
-        
+        Destroy(gameObject.transform.parent.gameObject);
     }
     
 }

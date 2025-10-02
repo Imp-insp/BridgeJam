@@ -213,7 +213,7 @@ MonoBehaviour:
   squishCd: 0.1
   trambleOffSet: 1
   trambleCd: 0.2
-  rayDistance: 0
+  rayDistance: 0.8
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8

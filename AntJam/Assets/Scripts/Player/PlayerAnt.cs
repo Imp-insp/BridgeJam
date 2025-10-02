@@ -15,7 +15,6 @@ public class PlayerAnt : MonoBehaviour
 
 
     [Header("Stats")] 
-    [SerializeField] private float staticMoveTime;
     public float antMoveTime;
     [SerializeField] private float bridgeCd;
 
@@ -71,7 +70,7 @@ public class PlayerAnt : MonoBehaviour
 
     public void StartMakingBridge()
     {
-        if (PlayerMotor.walkingOnAnts || _bridgeOnCd) return;
+        if (PlayerMotor.WalkingOnAnts || _bridgeOnCd) return;
         StartCoroutine(BridgeCd());
 
         if (_bridgeCoroutine != null)

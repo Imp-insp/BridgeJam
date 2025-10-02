@@ -23,7 +23,7 @@ public class Egg : Interactable
     {
         PlayerAnt.Instance.AddAnt();
         transform.DOKill();
-        Destroy(gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 
     private IEnumerator Wiggle()
