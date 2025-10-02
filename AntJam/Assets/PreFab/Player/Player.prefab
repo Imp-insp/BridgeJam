@@ -556,7 +556,7 @@ MonoBehaviour:
   chainStartPoint: {fileID: 1187504537878878578}
   antMoveTime: 0.28
   bridgeCd: 0.2
-  antAmount: 1
+  antAmount: 2
   foodAmount: 0
   arrow: {fileID: 4686717394487382040}
   antAmountText: {fileID: 770341442003363018}
@@ -688,7 +688,7 @@ Transform:
   m_GameObject: {fileID: 1842023262163338527}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4, z: 0}
+  m_LocalPosition: {x: 0, y: -1.136, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1699,7 +1699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.038687497, y: 0.8502777}
   m_AnchorMax: {x: 0.038687497, y: 0.8502777}
-  m_AnchoredPosition: {x: 124, y: 46.599915}
+  m_AnchoredPosition: {x: 124, y: 46.599854}
   m_SizeDelta: {x: 266, y: 170}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3730840042522344014
@@ -1775,7 +1775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1561125094417731304
