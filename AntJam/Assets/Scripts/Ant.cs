@@ -15,11 +15,11 @@ public class Ant : MonoBehaviour
     [SerializeField] private float trambleOffSet;
     [SerializeField] private float trambleCd;
 
-    [Header("WallCheck")]
-    [SerializeField] private float rayDistance;
+    [Header("WallCheck")] [SerializeField] private float rayDistance;
     [SerializeField] private LayerMask groundMask;
 
     [Header("BugFix")] private Vector2 _originalScale;
+
     private void Awake()
     {
         sprRenderer = GetComponent<SpriteRenderer>();
@@ -48,7 +48,6 @@ public class Ant : MonoBehaviour
             Tremble();
             CheckForWall();
             _playerAnt.areWalking = false;
-            
         });
         ;
     }
@@ -84,19 +83,19 @@ public class Ant : MonoBehaviour
     private void Tremble()
     {
         transform.localScale = _originalScale;
-        
+
         var targetSquish = new Vector3(transform.localScale.x + squishOffSet, transform.localScale.y,
             transform.localScale.z);
         transform.localScale = new Vector3(transform.localScale.x - squishOffSet, transform.localScale.y,
             transform.localScale.z);
         transform.DOScale(targetSquish, squishCd).SetLoops(-1, LoopType.Yoyo);
 
-        
+
         var trans = transform.localEulerAngles;
         var targetTramble = new Vector3(trans.x, trans.y,
-            trans.z+ trambleOffSet);
-        transform.localEulerAngles = new Vector3(trans.x , trans.y,
-            trans.z- trambleOffSet);
+            trans.z + trambleOffSet);
+        transform.localEulerAngles = new Vector3(trans.x, trans.y,
+            trans.z - trambleOffSet);
         transform.DORotate(targetTramble, trambleCd).SetLoops(-1, LoopType.Yoyo);
     }
 
@@ -108,9 +107,8 @@ public class Ant : MonoBehaviour
         {
             PlayerAnt.hitWall = true;
         }*/
-        
     }
-    
+
 
     /*public void PutCol(bool first)
     {

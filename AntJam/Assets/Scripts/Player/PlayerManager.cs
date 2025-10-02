@@ -11,17 +11,24 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance;
 
     [Header("Animation")] [SerializeField] private float checkAnimDuration;
-    [SerializeField] private float centerOffSet;
+    [SerializeField] private float yPos;
     [SerializeField] private float centerDuration;
-    
-    
+
+    [Header("Achivement")] [SerializeField]
+    private string checkPointAchivementTxt;
+
+    [SerializeField] private string secretAchivementTxt;
+
+    private int secretsFound;
+    [SerializeField] private int maxSecrets;
+
     [Header("Ui")] [SerializeField] private GameObject pauseMenu;
     [SerializeField] private TextMeshProUGUI checkPointText;
-    private Camera _mainCamera;
+    [SerializeField] private TextMeshProUGUI secretText;
 
     [Header("Save")] [SerializeField] private Vector2 lastPos;
     [SerializeField] private Quaternion lastRot;
-    
+
     private void Awake()
     {
         #region Singleton
@@ -34,8 +41,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        _mainCamera =  Camera.main;
-        
         lastPos = transform.position;
         lastRot = transform.rotation;
     }
@@ -50,21 +55,31 @@ public class PlayerManager : MonoBehaviour
     public void SetCheckPoint(Vector2 newPos, Quaternion newRot)
     {
         if (newPos == lastPos) return;
-        StartCoroutine(CheckPointAnimation());
+        StartCoroutine(PlayAchivementAnimation(checkPointAchivementTxt));
         lastPos = newPos;
         lastRot = newRot;
     }
 
-    private IEnumerator CheckPointAnimation()
+    public void AquireSecret()
     {
-        checkPointText.transform.DOLocalMoveX(0/*-centerOffSet*/, checkAnimDuration);
-            yield return new WaitForSeconds(checkAnimDuration);
-            /*checkPointText.transform.DOLocalMoveX(0+centerOffSet, centerDuration);*/
-            yield return new WaitForSeconds(centerDuration);
-            checkPointText.transform.DOLocalMoveX(_mainCamera.pixelWidth, checkAnimDuration);
-            yield return new WaitForSeconds(checkAnimDuration);
-            checkPointText.transform.position = new Vector2(-_mainCamera.pixelWidth, checkPointText.transform.position.y);
+        secretsFound++;
+        secretText.text = secretsFound + "/" + maxSecrets;
+        StartCoroutine(PlayAchivementAnimation(secretAchivementTxt));
+    }
 
+    private IEnumerator PlayAchivementAnimation(string achivementTxt)
+    {
+        transform.DOKill();
+        checkPointText.text = achivementTxt;
+        
+        checkPointText.transform.DOLocalMoveX(-Screen.width, 0f);
+        checkPointText.transform.DOLocalMoveX(0, checkAnimDuration);
+        yield return new WaitForSeconds(checkAnimDuration);
+        
+        yield return new WaitForSeconds(centerDuration);
+        
+        checkPointText.transform.DOLocalMoveX(Screen.width, checkAnimDuration);
+        yield return new WaitForSeconds(checkAnimDuration);
     }
 
     public void PauseMenu()
@@ -86,6 +101,7 @@ public class PlayerManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
+
     public void QuitGame()
     {
         Application.Quit();
