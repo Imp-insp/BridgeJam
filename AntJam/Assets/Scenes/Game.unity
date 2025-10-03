@@ -72819,7 +72819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5243195761449849196, guid: a4f48c9f63e6f0b4eb3ce4141f1793d4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8125634214834161937, guid: a4f48c9f63e6f0b4eb3ce4141f1793d4, type: 3}
       propertyPath: endScene
