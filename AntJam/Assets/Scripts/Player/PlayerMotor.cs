@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMotor : MonoBehaviour
 {
@@ -27,7 +28,10 @@ public class PlayerMotor : MonoBehaviour
     private bool _isWalking;
     public static bool isEnding;
 
-    
+    [Header("EndScene")]
+    [SerializeField] private GameObject endScene;
+    [SerializeField] private GameObject endSceneSecret;
+    [SerializeField] private Image[] flowerUis;
     
     [Header("Control")] public static bool WalkingOnAnts;
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
@@ -184,8 +188,22 @@ public class PlayerMotor : MonoBehaviour
 
         transform.DORotate(new Vector3(0,0,transform.rotation.eulerAngles.z + rotationAmount), animationTime, RotateMode.FastBeyond360);
         transform.DOScale(targetScale, animationTime);
-        _renderer.DOColor(targetColor, animationTime).OnComplete(Originate);
+        _renderer.DOColor(targetColor, animationTime).OnComplete(OpenEndScene);
         
+    }
+
+    private void OpenEndScene()
+    {
+        endScene.SetActive(true);
+        for (var i = 0; i < PlayerManager.Instance.secretsFound ; i++)
+        {
+            flowerUis[i].color = Color.white;
+            if (i + 1 == 4)
+            {
+                endSceneSecret.SetActive(true);
+            }
+        }
+       
     }
 
     public void Originate()
@@ -193,7 +211,12 @@ public class PlayerMotor : MonoBehaviour
         transform.DOScale(originalScale, 0f);
         _renderer.color = Color.white;
         startedEnding = false;
+        
+        endScene.SetActive(false);
+        
         PlayerManager.Instance.Die();
+        
+    
         
     }
     public void StartMovement()

@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private string secretAchivementTxt;
     [SerializeField] private string noBridgesAchivementTxt;
 
-    private int secretsFound;
+    public int secretsFound;
     [SerializeField] private int maxSecrets;
 
     [Header("Ui")] [SerializeField] private GameObject pauseMenu;
