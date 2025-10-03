@@ -14,7 +14,8 @@ public class PlayerAnt : MonoBehaviour
     [SerializeField] private Transform chainStartPoint;
 
 
-    [Header("Stats")] public float antMoveTime;
+    [Header("Stats")] 
+    public float antMoveTime;
     [SerializeField] private float bridgeCd;
 
     [Header("Ants")] [SerializeField] private int antAmount;
@@ -120,7 +121,7 @@ public class PlayerAnt : MonoBehaviour
                     ant.Activate(direction);
                     break;
                 default:
-                    ant.Activate(allAnts[i - 1].end.position, direction);
+                    ant.Activate(allAnts[i - 1].end.position, direction, i);
                     break;
             }
 

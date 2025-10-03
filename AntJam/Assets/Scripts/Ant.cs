@@ -52,15 +52,16 @@ public class Ant : MonoBehaviour
         ;
     }
 
-    public void Activate(Vector3 nextPoint, Vector2 direction)
+    public void Activate(Vector3 nextPoint, Vector2 direction, int index)
     {
         sprRenderer.enabled = true;
-        var moveTime = PlayerAnt.Instance.antMoveTime;
+        var moveTime =  PlayerAnt.Instance.antMoveTime ;
         _boxCollider2D.enabled = true;
+        
 
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.DORotateQuaternion(targetRotation, moveTime).OnComplete(() =>
+        transform.DORotateQuaternion(targetRotation, moveTime/index).OnComplete(() =>
         {
             Tremble();
             transform.DOMove(nextPoint, moveTime).OnComplete(() =>
