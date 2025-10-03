@@ -35,6 +35,9 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Save")] [SerializeField] private Vector2 lastPos;
     [SerializeField] private Quaternion lastRot;
+        
+    [Header("Particles")]
+    public ParticleSystem particles;
 
     private void Awake()
     {
@@ -65,6 +68,7 @@ public class PlayerManager : MonoBehaviour
     public void SetCheckPoint(Vector2 newPos, Quaternion newRot)
     {
         if (newPos == lastPos) return;
+        AudioManager.Instance.Play("Check Point");
         StartCoroutine(PlayAchivementAnimation(checkPointAchivementTxt));
         lastPos = newPos;
         lastRot = newRot;
@@ -127,5 +131,10 @@ public class PlayerManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ActivateParticles()
+    {
+        particles.Play();
     }
 }
