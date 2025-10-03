@@ -9,6 +9,8 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private float stickForce = 10f; // How strongly we stick to surfaces
     [SerializeField] private float rayDistance; // Distance to check for a surface
 
+    public static bool invertedMovement;
+    
     [Header("Ref")] [SerializeField] private LayerMask groundMask; // Layers considered as walkable
     [SerializeField] private Transform sidables;
     private Rigidbody2D _rb;
@@ -79,7 +81,7 @@ public class PlayerMotor : MonoBehaviour
                 Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * stickForce);
 
             _tangent = Vector2.Perpendicular(hit.normal);
-            var input = -direction.x * passedFlip;
+            var input = invertedMovement? -direction.x * passedFlip : -direction.x;
             var velocity = _tangent * (input * moveSpeed);
             if (direction.x != 0)
             {

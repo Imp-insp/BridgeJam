@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour
     [Header("Ui")] [SerializeField] private GameObject pauseMenu;
     [SerializeField] private TextMeshProUGUI checkPointText;
     [SerializeField] private TextMeshProUGUI secretText;
+    [SerializeField] private GameObject movementX;
 
     [Header("Save")] [SerializeField] private Vector2 lastPos;
     [SerializeField] private Quaternion lastRot;
@@ -82,6 +83,13 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(checkAnimDuration);
     }
 
+    public void ChangeMovement()
+    {
+        PlayerMotor.invertedMovement = !PlayerMotor.invertedMovement;
+        movementX.SetActive(PlayerMotor.invertedMovement);
+       
+    }
+    
     public void PauseMenu()
     {
         if (!pauseMenu.activeSelf)
