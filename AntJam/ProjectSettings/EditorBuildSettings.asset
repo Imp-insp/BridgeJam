@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d2d4bb46b54298a4a9c33eb62e863297
   - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 30da40f6ff5ceb04b9533dbde1ad9f40
+  - enabled: 0
     path: Assets/Scenes/Anthill.unity
     guid: dbd91031c9f7fd44eab4a8515679688d
   - enabled: 0
