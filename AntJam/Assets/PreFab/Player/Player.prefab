@@ -767,6 +767,7 @@ MonoBehaviour:
   centerDuration: 0.75
   checkPointAchivementTxt: New Check Point
   secretAchivementTxt: Secret Found!
+  noBridgesAchivementTxt: Can't bridge on top of ants!
   maxSecrets: 4
   pauseMenu: {fileID: 5243195761449849196}
   checkPointText: {fileID: 8722481117265915050}
@@ -2965,7 +2966,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1280, y: -350}
-  m_SizeDelta: {x: 500, y: 50}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2991370136672753537
 CanvasRenderer:

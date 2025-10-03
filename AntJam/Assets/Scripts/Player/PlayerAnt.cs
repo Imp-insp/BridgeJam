@@ -68,7 +68,12 @@ public class PlayerAnt : MonoBehaviour
 
     public void StartMakingBridge()
     {
-        if (PlayerMotor.WalkingOnAnts || _bridgeOnCd) return;
+        if (PlayerMotor.WalkingOnAnts)
+        {
+            PlayerManager.Instance.NoBridgesAnimation();
+            return;
+        }
+        if (_bridgeOnCd) return;
         StartCoroutine(BridgeCd());
 
         if (_bridgeCoroutine != null)

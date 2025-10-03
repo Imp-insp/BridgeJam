@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Ant : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Ant : MonoBehaviour
 
     [Header("BugFix")] private Vector2 _originalScale;
 
+    [Header("WallCheck")] private int _gossipNumber;
     private void Awake()
     {
         sprRenderer = GetComponent<SpriteRenderer>();
@@ -38,6 +40,8 @@ public class Ant : MonoBehaviour
 
     public void Activate(Vector2 direction)
     {
+        _gossipNumber = Random.Range(0, 4);
+        AudioManager.Instance.Play("Gossip " + _gossipNumber);
         sprRenderer.enabled = true;
         _boxCollider2D.enabled = true;
         var moveTime = PlayerAnt.Instance.antMoveTime;
@@ -54,6 +58,9 @@ public class Ant : MonoBehaviour
 
     public void Activate(Vector3 nextPoint, Vector2 direction, int index)
     {
+        _gossipNumber = Random.Range(0, 4);
+        AudioManager.Instance.Play("Gossip " + _gossipNumber);
+        
         sprRenderer.enabled = true;
         var moveTime =  PlayerAnt.Instance.antMoveTime ;
         _boxCollider2D.enabled = true;
@@ -75,6 +82,7 @@ public class Ant : MonoBehaviour
 
     public void DeactivateColl()
     {
+        AudioManager.Instance.Pause("Gossip " + _gossipNumber);
         _boxCollider2D.enabled = false;
         sprRenderer.enabled = false;
 

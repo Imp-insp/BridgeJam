@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     private string checkPointAchivementTxt;
 
     [SerializeField] private string secretAchivementTxt;
+    [SerializeField] private string noBridgesAchivementTxt;
 
     private int secretsFound;
     [SerializeField] private int maxSecrets;
@@ -56,6 +57,7 @@ public class PlayerManager : MonoBehaviour
         transform.position = lastPos;
         transform.rotation = lastRot;
         PlayerAnt.Instance.DeactivateBridge();
+        AudioManager.Instance.Play("Death");
     }
 
 
@@ -75,9 +77,9 @@ public class PlayerManager : MonoBehaviour
         StartCoroutine(PlayAchivementAnimation(secretAchivementTxt));
     }
 
-    private IEnumerator PlayAchivementAnimation(string achivementTxt)
+    public IEnumerator PlayAchivementAnimation(string achivementTxt)
     {
-        transform.DOKill();
+        checkPointText.transform.DOKill();
         checkPointText.text = achivementTxt;
         
         checkPointText.transform.DOLocalMoveX(-Screen.width, 0f);
@@ -88,6 +90,11 @@ public class PlayerManager : MonoBehaviour
         
         checkPointText.transform.DOLocalMoveX(Screen.width, checkAnimDuration);
         yield return new WaitForSeconds(checkAnimDuration);
+    }
+
+    public void NoBridgesAnimation()
+    {
+        StartCoroutine(PlayAchivementAnimation(noBridgesAchivementTxt));
     }
 
     public void ChangeMovement()
