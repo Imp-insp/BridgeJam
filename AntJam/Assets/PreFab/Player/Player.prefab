@@ -142,7 +142,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -4209461767521648114, guid: 36d467024f957fc4ca293cffc210a1be, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8529156, g: 0.79045033, b: 0.8773585, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -722,6 +722,9 @@ MonoBehaviour:
   rotationAmount: 0
   downsScalingAmount: 0
   animationTime: 0
+  endScene: {fileID: 0}
+  endSceneSecret: {fileID: 0}
+  flowerUis: []
   flip: 0
   passedFlip: 0
 --- !u!114 &1404830361787735418
@@ -770,6 +773,7 @@ MonoBehaviour:
   checkPointAchivementTxt: New Check Point
   secretAchivementTxt: Secret Found!
   noBridgesAchivementTxt: Can't bridge on top of ants!
+  secretsFound: 0
   maxSecrets: 4
   pauseMenu: {fileID: 5243195761449849196}
   checkPointText: {fileID: 8722481117265915050}
