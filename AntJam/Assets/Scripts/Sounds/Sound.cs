@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -9,6 +10,7 @@ public class Sound
 
     [Range(0f, 1f)]
     public float volume;
+    public float orignalVolume;
     [Range(.1f, 3f)]
     public float pitch;
 
@@ -16,5 +18,6 @@ public class Sound
 
     [HideInInspector]
     public AudioSource source;
+    
 
 }

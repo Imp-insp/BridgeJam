@@ -2688,7 +2688,7 @@ Transform:
   m_GameObject: {fileID: 180374920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.44, y: -0.46, z: -10}
+  m_LocalPosition: {x: 22.34, y: 4.54, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3402,7 +3402,7 @@ Transform:
   m_GameObject: {fileID: 314423252}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.44, y: -0.46, z: -10}
+  m_LocalPosition: {x: 22.34, y: 4.54, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -72827,11 +72827,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1763280499124934514, guid: a4f48c9f63e6f0b4eb3ce4141f1793d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.44
+      value: 22.34
       objectReference: {fileID: 0}
     - target: {fileID: 1763280499124934514, guid: a4f48c9f63e6f0b4eb3ce4141f1793d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.46
+      value: 4.54
       objectReference: {fileID: 0}
     - target: {fileID: 1763280499124934514, guid: a4f48c9f63e6f0b4eb3ce4141f1793d4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -78117,68 +78117,100 @@ MonoBehaviour:
   - name: Ant Back
     clip: {fileID: 8300000, guid: 7e183ffd337cb0441a9cfc7338fec547, type: 3}
     volume: 0.13
+    orignalVolume: 0
     pitch: 0.87
     loop: 0
     source: {fileID: 0}
   - name: Shoot
     clip: {fileID: 8300000, guid: 8688ae9a95a5ec8479239b999774609b, type: 3}
     volume: 0.13
+    orignalVolume: 0
     pitch: 0.82
     loop: 0
     source: {fileID: 0}
   - name: Collect Egg
     clip: {fileID: 8300000, guid: 9fd266600e51517428d418e4394f198f, type: 3}
     volume: 0.5
+    orignalVolume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: cc41caf71d9ea214086cd49b6670853f, type: 3}
     volume: 0.2
+    orignalVolume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Eat
     clip: {fileID: 8300000, guid: bb05052ca2e02f64d9690e047b25888d, type: 3}
     volume: 0.5
+    orignalVolume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Walk
     clip: {fileID: 8300000, guid: f69b13b1203f7c442915684819988ba2, type: 3}
     volume: 0.177
+    orignalVolume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Theme
     clip: {fileID: 8300000, guid: 25597c63ed540c347840764515773b66, type: 3}
     volume: 0.18
+    orignalVolume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Gossip 0
     clip: {fileID: 8300000, guid: 6657d7a4828b9fb489234e54e48e8561, type: 3}
     volume: 0.05
+    orignalVolume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Gossip 1
     clip: {fileID: 8300000, guid: 90fe90979bdd7c4439537046bb9d687d, type: 3}
     volume: 0.05
+    orignalVolume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Gossip 2
     clip: {fileID: 8300000, guid: bbe95590f918c184086ca405d14f802f, type: 3}
     volume: 0.05
+    orignalVolume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Gossip 3
     clip: {fileID: 8300000, guid: 51e99f77ec969c6439f92d1eb51d9729, type: 3}
     volume: 0.05
+    orignalVolume: 0
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: Tremor
+    clip: {fileID: 8300000, guid: f54d7ac64d326ab47bf033b53cfec824, type: 3}
+    volume: 0.2
+    orignalVolume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Check Point
+    clip: {fileID: 8300000, guid: f54d7ac64d326ab47bf033b53cfec824, type: 3}
+    volume: 0.5
+    orignalVolume: 0
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 'Secret '
+    clip: {fileID: 8300000, guid: f54d7ac64d326ab47bf033b53cfec824, type: 3}
+    volume: 0.5
+    orignalVolume: 0
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &1706410167
 Transform:

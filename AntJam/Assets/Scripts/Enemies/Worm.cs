@@ -6,29 +6,26 @@ using UnityEngine.Rendering.Universal;
 
 public class Worm : MonoBehaviour
 {
-   [Header("Patrol Settings")] 
-   public Transform[] waypoints; // List of patrol points
+    [Header("Patrol Settings")] public Transform[] waypoints; // List of patrol points
     [SerializeField] private float speed = 2f; // Movement speed
     [SerializeField] private float restingTime = 2f;
     private bool resting;
     private Rigidbody2D rb;
-    
-    [Header("Light")] 
-    [SerializeField] private Light2D lig2D;
+
+    [Header("Light")] [SerializeField] private Light2D lig2D;
     [SerializeField] private LayerMask groundMask;
 
-    
-    void Start()
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         if (waypoints.Length > 0)
             transform.position = waypoints[0].position; // Start at first waypoint
     }
-    
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
-        
-        var hit = Physics2D.CircleCast(transform.position, 0.2f,transform.up, 0.3f, groundMask);
+        var hit = Physics2D.CircleCast(transform.position, 0.2f, transform.up, 0.3f, groundMask);
         lig2D.enabled = !hit.collider;
         if (!resting)
         {
@@ -45,17 +42,14 @@ public class Worm : MonoBehaviour
                 StartCoroutine(ResetToFirstWaypoint());
             }
         }
-        
     }
 
     private IEnumerator ResetToFirstWaypoint()
     {
-        
         resting = true;
         yield return new WaitForSeconds(restingTime);
         transform.position = waypoints[0].position;
         resting = false;
-        
     }
 
     private void OnDrawGizmosSelected()
@@ -68,7 +62,6 @@ public class Worm : MonoBehaviour
         }
     }
 
-    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
