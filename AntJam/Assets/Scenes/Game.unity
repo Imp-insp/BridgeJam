@@ -78150,10 +78150,10 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Walk
-    clip: {fileID: 8300000, guid: f69b13b1203f7c442915684819988ba2, type: 3}
-    volume: 0.177
+    clip: {fileID: 8300000, guid: 4fb72419f344c634286d4682963c85f0, type: 3}
+    volume: 1
     orignalVolume: 0
-    pitch: 1
+    pitch: 0.9
     loop: 1
     source: {fileID: 0}
   - name: Theme
