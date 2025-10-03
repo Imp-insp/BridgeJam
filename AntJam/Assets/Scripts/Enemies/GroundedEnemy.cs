@@ -21,7 +21,7 @@ public class GroundedEnemy : MonoBehaviour
         _rb.gravityScale = 0; // disable gravity since player sticks to walls
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (isPatrolling) ProcessMovement();
     }
