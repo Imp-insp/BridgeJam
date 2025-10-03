@@ -9,8 +9,7 @@ public class Food : Interactable
     {
         AudioManager.Instance.Play("Eat");
         PlayerAnt.Instance.AddFood(foodValue);
-        transform.DOKill();
-        Destroy(gameObject.transform.parent.gameObject);
+        CollectAnim(PlayerManager.Instance.foodCool.position);
     }
     
 }

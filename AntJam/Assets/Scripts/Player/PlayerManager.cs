@@ -10,6 +10,11 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
 
+
+    [Header("Colectables Positions")] public Transform foodCool;
+    public Transform eggCool;
+    public Transform secretCool;
+    
     [Header("Animation")] [SerializeField] private float checkAnimDuration;
     [SerializeField] private float yPos;
     [SerializeField] private float centerDuration;
@@ -52,6 +57,8 @@ public class PlayerManager : MonoBehaviour
         transform.rotation = lastRot;
         PlayerAnt.Instance.DeactivateBridge();
     }
+
+
 
     public void SetCheckPoint(Vector2 newPos, Quaternion newRot)
     {

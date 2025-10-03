@@ -13,6 +13,7 @@ public class Egg : Interactable
 
 
     [Header("Control")] private int _wiggleAmount;
+    private bool candie;
 
     private void Start()
     {
@@ -23,9 +24,10 @@ public class Egg : Interactable
     {
         AudioManager.Instance.Play("Collect Egg");
         PlayerAnt.Instance.AddAnt();
-        transform.DOKill();
-        Destroy(gameObject.transform.parent.gameObject);
+        CollectAnim(PlayerManager.Instance.eggCool.position);
     }
+    
+    
 
     private IEnumerator Wiggle()
     {
