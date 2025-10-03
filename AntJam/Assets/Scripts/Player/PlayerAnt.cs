@@ -59,7 +59,7 @@ public class PlayerAnt : MonoBehaviour
 
     private void Update()
     {
-        var direction = InputHandler.mousePos - (Vector2)transform.position;
+        var direction = InputHandler.mousePos - (Vector2)chainStartPoint.position;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
 

@@ -3,14 +3,17 @@ using UnityEngine;
 
 public class WormShakeController : MonoBehaviour
 {
-    [Header("Configuração do Tremor")]
-    [Tooltip("A intensidade máxima do tremor quando o jogador está no centro.")]
+    [Header("Target")]
+    [SerializeField] private Transform target;
+    
+    [Header("Configuraï¿½ï¿½o do Tremor")]
+    [Tooltip("A intensidade mï¿½xima do tremor quando o jogador estï¿½ no centro.")]
     [SerializeField] private float maxShakeIntensity = 0.3f;
 
-    [Tooltip("Frequência do tremor (tremores por segundo).")]
+    [Tooltip("Frequï¿½ncia do tremor (tremores por segundo).")]
     [SerializeField] private float shakeFrequency = 12f;
 
-    [Header("Referências")]
+    [Header("Referï¿½ncias")]
     [Tooltip("A tag do objeto do jogador.")]
     [SerializeField] private string playerTag = "Player";
 
@@ -28,21 +31,23 @@ public class WormShakeController : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerInside && playerTransform != null)
+        transform.position = target.transform.position;
+        
+        if (isPlayerInside && playerTransform)
         {
             shakeTimer += Time.deltaTime;
 
-            // Gera impulsos rápidos baseado na frequência
+            // Gera impulsos rï¿½pidos baseado na frequï¿½ncia
             float shakeInterval = 1f / shakeFrequency;
             if (shakeTimer >= shakeInterval)
             {
                 shakeTimer = 0f;
 
-                float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
-                float maxDistance = Mathf.Max(shakeCollider.size.x, shakeCollider.size.y) / 2f;
-                float intensityFactor = Mathf.InverseLerp(maxDistance, 0, distanceToPlayer);
-                float currentIntensity = intensityFactor * maxShakeIntensity;
-
+                var distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+                var maxDistance = Mathf.Max(shakeCollider.size.x, shakeCollider.size.y) / 2f;
+                var intensityFactor = Mathf.InverseLerp(maxDistance, 0, distanceToPlayer);
+                var currentIntensity = intensityFactor * maxShakeIntensity;
+                
                 if (currentIntensity > 0)
                 {
                     impulseSource.GenerateImpulse(currentIntensity);

@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,13 +21,13 @@ public class PlayerMotor : MonoBehaviour
     private Rigidbody2D _rb;
     [SerializeField] private Animator sidaAnim;
     [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private TextMeshProUGUI secretsFoundText;
 
     [Header("Animation")]
     [SerializeField] private float rotationAmount;
     [SerializeField] private float downsScalingAmount;
     [SerializeField] private float animationTime;
     private bool _isWalking;
-    public static bool isEnding;
 
     [Header("EndScene")]
     [SerializeField] private GameObject endScene;
@@ -195,13 +196,15 @@ public class PlayerMotor : MonoBehaviour
     private void OpenEndScene()
     {
         endScene.SetActive(true);
-        for (var i = 0; i < PlayerManager.Instance.secretsFound ; i++)
+        var sFound = PlayerManager.Instance.secretsFound;
+        secretsFoundText.text = "Secrets Found: " + sFound + "/" + 4;
+        for (var i = 0; i < sFound ; i++)
         {
             flowerUis[i].color = Color.white;
-            if (i + 1 == 4)
-            {
-                endSceneSecret.SetActive(true);
-            }
+        }
+        if (sFound == 4)
+        {
+            endSceneSecret.SetActive(true);
         }
        
     }

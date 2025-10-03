@@ -44,6 +44,9 @@ public class PlayerManager : MonoBehaviour
         else Destroy(gameObject);
 
         #endregion
+        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Start()
@@ -109,11 +112,15 @@ public class PlayerManager : MonoBehaviour
         if (!pauseMenu.activeSelf)
         {
             pauseMenu.SetActive(true);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
         }
         else
         {
             pauseMenu.SetActive(false);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 1;
         }
     }
