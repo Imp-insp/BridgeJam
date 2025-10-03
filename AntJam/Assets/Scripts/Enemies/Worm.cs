@@ -28,7 +28,7 @@ public class Worm : MonoBehaviour
     void FixedUpdate()
     {
         
-        var hit = Physics2D.CircleCast(transform.position, 1f,transform.up, 0.3f, groundMask);
+        var hit = Physics2D.CircleCast(transform.position, 0.2f,transform.up, 0.3f, groundMask);
         lig2D.enabled = !hit.collider;
         if (!resting)
         {
