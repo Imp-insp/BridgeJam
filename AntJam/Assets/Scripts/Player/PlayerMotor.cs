@@ -33,6 +33,7 @@ public class PlayerMotor : MonoBehaviour
     [Header("EndScene")]
     [SerializeField] private GameObject endScene;
     [SerializeField] private GameObject endSceneSecret;
+    [SerializeField] private GameObject redSecret;
     [SerializeField] private Image[] flowerUis;
     [SerializeField] private TextMeshProUGUI timerText;
 
@@ -208,15 +209,24 @@ public class PlayerMotor : MonoBehaviour
         for (var i = 0; i < sFound ; i++)
         {
             flowerUis[i].color = Color.white;
+            if (sFound == 5)
+            {
+                flowerUis[i].color = Color.red;
+            }
         }
         if (sFound == 4)
         {
             endSceneSecret.SetActive(true);
         }
+
+        if (sFound == 5)
+        {
+            redSecret.SetActive(true);
+        }
+        
         
         timerText.text = "Finished in " + (int) playerTimer/60 + " minutes!"; 
         
-        Time.timeScale = 0;
        
     }
 
@@ -230,7 +240,6 @@ public class PlayerMotor : MonoBehaviour
         
         PlayerManager.Instance.Die();
         
-        Time.timeScale = 1;
         
     }
     public void StartMovement()
