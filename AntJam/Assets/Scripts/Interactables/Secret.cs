@@ -6,7 +6,7 @@ public class Secret : Interactable
     public override void Interact()
     {
         AudioManager.Instance.Play("Secret");
-        PlayerManager.Instance.ActivateParticles();
+        PlayerManager.Instance.ActivateParticles(false);
         PlayerManager.Instance.AquireSecret();
         CollectAnim(PlayerManager.Instance.secretCool.position);
         

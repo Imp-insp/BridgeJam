@@ -7,7 +7,6 @@ public class Food : Interactable
     
     public override void Interact()
     {
-        PlayerManager.Instance.ActivateParticles();
         AudioManager.Instance.Play("Eat");
         PlayerAnt.Instance.AddFood(foodValue);
         CollectAnim(PlayerManager.Instance.foodCool.position);

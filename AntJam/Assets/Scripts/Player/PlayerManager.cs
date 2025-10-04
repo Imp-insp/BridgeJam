@@ -39,6 +39,8 @@ public class PlayerManager : MonoBehaviour
     [Header("Particles")]
     public ParticleSystem particles;
 
+    public ParticleSystem larvaParticles;
+
     private void Awake()
     {
         #region Singleton
@@ -133,8 +135,9 @@ public class PlayerManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void ActivateParticles()
+    public void ActivateParticles(bool larva)
     {
+        if (larva) { larvaParticles.Play(); return;}
         particles.Play();
     }
 }

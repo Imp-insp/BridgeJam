@@ -24,7 +24,7 @@ public class Egg : Interactable
     {
         AudioManager.Instance.Play("Collect Egg");
         PlayerAnt.Instance.AddAnt();
-        PlayerManager.Instance.ActivateParticles();
+        PlayerManager.Instance.ActivateParticles(true);
         CollectAnim(PlayerManager.Instance.eggCool.position);
     }
     

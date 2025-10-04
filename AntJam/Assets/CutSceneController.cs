@@ -1,14 +1,17 @@
-using System.Collections; // Necess�rio para usar Coroutines (IEnumerator)
+using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 
-public class SceneFadeController : MonoBehaviour
+public class CutSceneController : MonoBehaviour
 {
     public Image fadeImage;
     public float fadeDuration = 2.5f;
 
     private int _currentIndex;
+    private Tween _currentTween;
+    public List<Image> pannels;
 
     void Start()
     {
@@ -40,12 +43,21 @@ public class SceneFadeController : MonoBehaviour
 
     public void Continue()
     {
-        _currentIndex++;
-        
-        switch (_currentIndex)
+        if (_currentTween.active)
         {
-            case 1:
-                break;
+            _currentTween.Complete();
         }
+        else if (_currentIndex ==  pannels.Count)
+        {
+            FadeImg(pannels[_currentIndex]);
+        }
+    }
+
+    private void FadeImg(Image img)
+    {
+        _currentTween = img.DOFade(1f, fadeDuration).OnComplete(() =>
+        {
+            _currentIndex++;
+        });
     }
 }
