@@ -17,6 +17,7 @@ public class PlayerMotor : MonoBehaviour
     public static bool invertedMovement;
     
     [Header("Ref")] [SerializeField] private LayerMask groundMask; // Layers considered as walkable
+    [SerializeField] private LayerMask realGroundMask;
     [SerializeField] private Transform sidables;
     private Rigidbody2D _rb;
     [SerializeField] private Animator sidaAnim;
@@ -35,6 +36,7 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private Image[] flowerUis;
     
     [Header("Control")] public static bool WalkingOnAnts;
+    public static float DistanceToGround;
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
     public int flip;
     public int passedFlip;
@@ -79,7 +81,7 @@ public class PlayerMotor : MonoBehaviour
 
         if (hit.collider)
         {
-
+            DistanceToGround = hit.distance;
             rayDistance = _originalRayDistance;
             WalkingOnAnts = hit.collider.gameObject.layer == 6;
 
@@ -121,6 +123,7 @@ public class PlayerMotor : MonoBehaviour
         }
         else
         {
+            DistanceToGround = float.MaxValue;
             // --- RECOVERY MODE: Initial cast failed, meaning the player is falling or floating off a gap. ---
 
             // 1. Perform a wide-range search to find the absolute NEAREST valid surface.
@@ -225,5 +228,23 @@ public class PlayerMotor : MonoBehaviour
     public void StartMovement()
     {
         passedFlip = flip;
+    }
+    public static float GetCurrentDistanceToGround()
+    {
+        // A única mudança é aqui: trocamos "Instance.groundMask" por "Instance.realGroundMask"
+        var hit = Physics2D.CircleCast(
+            Instance.transform.position,
+            0.2f,
+            -Instance.transform.up, // <-- Mude de volta de Vector2.down para isto
+            100f,
+            Instance.realGroundMask
+        );
+
+        if (hit.collider)
+        {
+            return hit.distance;
+        }
+
+        return float.MaxValue;
     }
 }

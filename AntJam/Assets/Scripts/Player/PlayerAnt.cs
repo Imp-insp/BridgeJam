@@ -68,8 +68,9 @@ public class PlayerAnt : MonoBehaviour
 
     public void StartMakingBridge()
     {
-        if (PlayerMotor.WalkingOnAnts)
+        if (PlayerMotor.WalkingOnAnts && PlayerMotor.GetCurrentDistanceToGround() >= 0.55f)
         {
+            Debug.Log($"Tentativa de desfazer bloqueada. Distância atual: {PlayerMotor.GetCurrentDistanceToGround()}"); // Debug opcional
             PlayerManager.Instance.NoBridgesAnimation();
             return;
         }
