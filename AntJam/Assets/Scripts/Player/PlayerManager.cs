@@ -92,7 +92,7 @@ public class PlayerManager : MonoBehaviour
         
         yield return new WaitForSeconds(centerDuration);
         
-        checkPointText.transform.DOLocalMoveX(Screen.width, checkAnimDuration);
+        checkPointText.transform.DOLocalMoveX(Screen.width + Screen.width/2, checkAnimDuration);
         yield return new WaitForSeconds(checkAnimDuration);
     }
 

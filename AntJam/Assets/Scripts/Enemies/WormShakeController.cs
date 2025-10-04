@@ -46,8 +46,9 @@ public class WormShakeController : MonoBehaviour
                 var distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
                 var maxDistance = Mathf.Max(shakeCollider.size.x, shakeCollider.size.y) / 2f;
                 var intensityFactor = Mathf.InverseLerp(maxDistance, 0, distanceToPlayer);
-                var currentIntensity = intensityFactor * maxShakeIntensity;
-                AudioManager.Instance.PlayOnce("Tremor", Mathf.Abs( currentIntensity));
+                var currentIntensity = intensityFactor * maxShakeIntensity + 0.2f;
+                var currentIntensityMuysuc = intensityFactor * maxShakeIntensity;
+                AudioManager.Instance.PlayOnce("Tremor", Mathf.Abs( currentIntensityMuysuc));
                 if (currentIntensity > 0)
                 {
                     impulseSource.GenerateImpulse(currentIntensity);

@@ -111,7 +111,7 @@ public class PlayerAnt : MonoBehaviour
 
         AudioManager.Instance.Play("Shoot");
 
-        var direction = InputHandler.mousePos - (Vector2)transform.position;
+        var direction = InputHandler.mousePos - (Vector2)chainStartPoint.position;
         var startPos = chainStartPoint.position;
         for (var i = 0; i < allAnts.Count; i++)
         {
