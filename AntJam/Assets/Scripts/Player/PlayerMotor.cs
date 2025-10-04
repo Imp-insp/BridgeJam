@@ -34,7 +34,8 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private GameObject endScene;
     [SerializeField] private GameObject endSceneSecret;
     [SerializeField] private Image[] flowerUis;
-    
+    [SerializeField] private TextMeshProUGUI timerText;
+
     [Header("Control")] public static bool WalkingOnAnts;
     public static float DistanceToGround;
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
@@ -44,6 +45,8 @@ public class PlayerMotor : MonoBehaviour
     private float _originalRayDistance;
     private bool startedEnding;
     private Vector3 originalScale;
+
+    private float playerTimer;
 
     private void Awake()
     {
@@ -61,6 +64,7 @@ public class PlayerMotor : MonoBehaviour
 
     private void Update()
     {
+        playerTimer += Time.deltaTime;
         sidaAnim.SetBool(IsWalking, _isWalking);
 
         if (_isWalking && !startedEnding)
@@ -209,6 +213,10 @@ public class PlayerMotor : MonoBehaviour
         {
             endSceneSecret.SetActive(true);
         }
+        
+        timerText.text = "Finished in " + (int) playerTimer/60 + " minutes!"; 
+        
+        Time.timeScale = 0;
        
     }
 
@@ -222,7 +230,7 @@ public class PlayerMotor : MonoBehaviour
         
         PlayerManager.Instance.Die();
         
-    
+        Time.timeScale = 1;
         
     }
     public void StartMovement()
@@ -231,7 +239,7 @@ public class PlayerMotor : MonoBehaviour
     }
     public static float GetCurrentDistanceToGround()
     {
-        // A única mudança é aqui: trocamos "Instance.groundMask" por "Instance.realGroundMask"
+        // A ï¿½nica mudanï¿½a ï¿½ aqui: trocamos "Instance.groundMask" por "Instance.realGroundMask"
         var hit = Physics2D.CircleCast(
             Instance.transform.position,
             0.2f,

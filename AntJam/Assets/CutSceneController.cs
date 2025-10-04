@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CutSceneController : MonoBehaviour
@@ -37,27 +38,30 @@ public class CutSceneController : MonoBehaviour
     {
         fadeImage.DOFade(0f, fadeDuration)
             .OnComplete(() => {
-                fadeImage.gameObject.SetActive(false);
             });
     }
-
+    public void FadeOut()
+    {
+        fadeImage.DOFade(1f, fadeDuration)
+            .OnComplete(() => {
+                SceneManager.LoadScene("Game");
+            });
+    }
     public void Continue()
     {
-        if (_currentTween.active)
+        if (_currentIndex ==  pannels.Count)
         {
-            _currentTween.Complete();
+            FadeOut();
         }
-        else if (_currentIndex ==  pannels.Count)
+        else
         {
             FadeImg(pannels[_currentIndex]);
+            _currentIndex++;
         }
     }
 
     private void FadeImg(Image img)
     {
-        _currentTween = img.DOFade(1f, fadeDuration).OnComplete(() =>
-        {
-            _currentIndex++;
-        });
+        _currentTween = img.DOFade(1f, fadeDuration);
     }
 }

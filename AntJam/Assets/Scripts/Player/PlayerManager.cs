@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Save")] [SerializeField] private Vector2 lastPos;
     [SerializeField] private Quaternion lastRot;
+    public float playerTimer;
         
     [Header("Particles")]
     public ParticleSystem particles;
@@ -64,7 +65,6 @@ public class PlayerManager : MonoBehaviour
         PlayerAnt.Instance.DeactivateBridge();
         AudioManager.Instance.Play("Death");
     }
-
 
 
     public void SetCheckPoint(Vector2 newPos, Quaternion newRot)
