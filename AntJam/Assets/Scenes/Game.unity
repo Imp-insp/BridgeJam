@@ -2565,6 +2565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1047494743}
   maxShakeIntensity: 0.2
+  maxSoundVolume: 1
   shakeFrequency: 15
   playerTag: Player
 --- !u!114 &161772682
@@ -2655,7 +2656,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 20, y: 50}
+  m_Size: {x: 23, y: 50}
   m_Direction: 0
 --- !u!1 &161918412
 GameObject:
@@ -3008,7 +3009,7 @@ Transform:
   m_GameObject: {fileID: 180374920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.75, y: -0.5, z: -10}
+  m_LocalPosition: {x: 1.6, y: -0.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3937,7 +3938,7 @@ Transform:
   m_GameObject: {fileID: 314423252}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.75, y: -0.5, z: -10}
+  m_LocalPosition: {x: 1.6, y: -0.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -70682,7 +70683,7 @@ Transform:
   m_GameObject: {fileID: 540700778}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.661, y: -1.396, z: -0.0034196072}
+  m_LocalPosition: {x: 3.33, y: -0.857, z: -0.0034196072}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76291,7 +76292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1404830361787735418, guid: a4f48c9f63e6f0b4eb3ce4141f1793d4, type: 3}
       propertyPath: antAmount
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1404830361787735418, guid: a4f48c9f63e6f0b4eb3ce4141f1793d4, type: 3}
       propertyPath: distToGroundThreshold
@@ -76299,7 +76300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1763280499124934514, guid: a4f48c9f63e6f0b4eb3ce4141f1793d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.75
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 1763280499124934514, guid: a4f48c9f63e6f0b4eb3ce4141f1793d4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -82437,7 +82438,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Tremor
-    clip: {fileID: 8300000, guid: 0ce66583d8274fb4083dc10c665b376a, type: 3}
+    clip: {fileID: 8300000, guid: 5074d8207bb792749a9e6ef55f298f40, type: 3}
     volume: 1
     orignalVolume: 1
     pitch: 1

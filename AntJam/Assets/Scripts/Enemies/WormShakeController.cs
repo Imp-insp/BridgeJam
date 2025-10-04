@@ -5,15 +5,18 @@ public class WormShakeController : MonoBehaviour
 {
     [Header("Target")]
     [SerializeField] private Transform target;
-    
-    [Header("Configura��o do Tremor")]
-    [Tooltip("A intensidade m�xima do tremor quando o jogador est� no centro.")]
+
+    [Header("Configuração do Tremor")]
+    [Tooltip("A intensidade máxima do tremor quando o jogador está no centro.")]
     [SerializeField] private float maxShakeIntensity = 0.3f;
 
-    [Tooltip("Frequ�ncia do tremor (tremores por segundo).")]
+    [Tooltip("O volume máximo do som de tremor (0 a 1).")]
+    [SerializeField] private float maxSoundVolume = 1f;
+
+    [Tooltip("Frequência do tremor (tremores por segundo).")]
     [SerializeField] private float shakeFrequency = 12f;
 
-    [Header("Refer�ncias")]
+    [Header("Referências")]
     [Tooltip("A tag do objeto do jogador.")]
     [SerializeField] private string playerTag = "Player";
 
@@ -31,29 +34,41 @@ public class WormShakeController : MonoBehaviour
 
     void Update()
     {
-        transform.position = target.transform.position;
-        
-        if (isPlayerInside && playerTransform)
+        if (target != null)
         {
-            shakeTimer += Time.deltaTime;
+            transform.position = target.position;
+        }
 
-            // Gera impulsos r�pidos baseado na frequ�ncia
-            float shakeInterval = 1f / shakeFrequency;
-            if (shakeTimer >= shakeInterval)
+        // Se o jogador estiver dentro, atualiza o shake e o som
+        if (isPlayerInside && playerTransform != null)
+        {
+            UpdateShakeAndSound();
+        }
+    }
+
+    private void UpdateShakeAndSound()
+    {
+        shakeTimer += Time.deltaTime;
+        float shakeInterval = 1f / shakeFrequency;
+
+        if (shakeTimer >= shakeInterval)
+        {
+            shakeTimer = 0f;
+
+            float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+            float maxDistance = Mathf.Max(shakeCollider.size.x, shakeCollider.size.y) / 2f;
+            float intensityFactor = Mathf.Clamp01(Mathf.InverseLerp(maxDistance, 0, distanceToPlayer));
+
+            // Aplica o shake na câmera
+            float currentIntensity = intensityFactor * maxShakeIntensity;
+            if (currentIntensity > 0 && impulseSource != null)
             {
-                shakeTimer = 0f;
-
-                var distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
-                var maxDistance = Mathf.Max(shakeCollider.size.x, shakeCollider.size.y) / 2f;
-                var intensityFactor = Mathf.InverseLerp(maxDistance, 0, distanceToPlayer);
-                var currentIntensity = intensityFactor * maxShakeIntensity + 0.2f;
-                var currentIntensityMuysuc = intensityFactor * maxShakeIntensity;
-                AudioManager.Instance.PlayOnce("Tremor", Mathf.Abs( currentIntensityMuysuc));
-                if (currentIntensity > 0)
-                {
-                    impulseSource.GenerateImpulse(currentIntensity);
-                }
+                impulseSource.GenerateImpulse(currentIntensity);
             }
+
+            // Atualiza o volume do som
+            float currentVolume = intensityFactor * maxSoundVolume;
+            AudioManager.Instance.SetVolume("Tremor", currentVolume);
         }
     }
 
@@ -63,7 +78,11 @@ public class WormShakeController : MonoBehaviour
         {
             playerTransform = other.transform;
             isPlayerInside = true;
-            shakeTimer = 0f;
+
+            // [CORREÇÃO DO CLIP] Inicia o som e imediatamente zera o volume.
+            // O Update() vai ajustar para o volume correto no frame seguinte, sem o pico de 100%.
+            AudioManager.Instance.Play("Tremor");
+            AudioManager.Instance.SetVolume("Tremor", 0f);
         }
     }
 
@@ -73,8 +92,18 @@ public class WormShakeController : MonoBehaviour
         {
             isPlayerInside = false;
             playerTransform = null;
-            shakeTimer = 0f;
-            AudioManager.Instance.Pause("Tremor");
+
+            // Simplesmente para o som ao sair, sem fade.
+            AudioManager.Instance.Stop("Tremor");
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Garante que o som pare se o objeto for destruído
+        if (AudioManager.Instance != null && AudioManager.Instance.IsPlaying("Tremor"))
+        {
+            AudioManager.Instance.Stop("Tremor");
         }
     }
 }
