@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerAnt : MonoBehaviour
 {
+    public float distToGroundThreshold = 0.8f;
     public static PlayerAnt Instance;
 
     [Header("References")] [SerializeField]
@@ -68,7 +69,7 @@ public class PlayerAnt : MonoBehaviour
 
     public void StartMakingBridge()
     {
-        if (PlayerMotor.WalkingOnAnts && PlayerMotor.GetCurrentDistanceToGround() >= 0.55f)
+        if (PlayerMotor.WalkingOnAnts && PlayerMotor.GetCurrentDistanceToGround() >= distToGroundThreshold)
         {
             Debug.Log($"Tentativa de desfazer bloqueada. Distância atual: {PlayerMotor.GetCurrentDistanceToGround()}"); // Debug opcional
             PlayerManager.Instance.NoBridgesAnimation();
